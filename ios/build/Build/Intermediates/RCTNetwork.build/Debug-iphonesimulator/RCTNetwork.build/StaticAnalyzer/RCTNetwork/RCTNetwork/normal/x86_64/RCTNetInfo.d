@@ -1,0 +1,13 @@
+dependencies: \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/node_modules/react-native/Libraries/Network/RCTNetInfo.m \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/node_modules/react-native/Libraries/Network/RCTNetInfo.h \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventEmitter.h \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h
