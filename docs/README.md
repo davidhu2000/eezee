@@ -15,6 +15,14 @@ With this mobile app, the user will be to:
 
 ## Wireframes
 
+Home screen
+![home_screen][home_screen]
+
+Search movies by title
+![search][search_results]
+
+[All wireframes][wireframes]
+
 ## Technologies & Technical Challenges
 
 The mobile application will be create using the following technologies:
@@ -90,3 +98,7 @@ Tom's primary responsibilities will be:
 - Add more search functionalities to query other types of data, such as riding sharing services.
 - Add user recommendation based on prior searches and related movies to current search.
 - Setup Facebook Login.
+
+[home_screen]: ./wireframes/home_screen.pdf "Home Screen"
+[search_results]: ./wireframes/search_results.pdf "Search Results"
+[wireframes]: ./wireframes
