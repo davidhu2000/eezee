@@ -1,30 +1,30 @@
 dependencies: \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/node_modules/react-native/Libraries/Image/RCTImageViewManager.m \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/node_modules/react-native/Libraries/Image/RCTImageViewManager.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTViewManager.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTImageSource.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/node_modules/react-native/Libraries/Image/RCTImageLoader.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTResizeMode.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTURLRequestHandler.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTURLRequestDelegate.h \
-  /Users/alexsherman/Documents/Dev\ Docs/A:a/eezee/node_modules/react-native/Libraries/Image/RCTImageView.h
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/node_modules/react-native/Libraries/Image/RCTImageViewManager.m \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/node_modules/react-native/Libraries/Image/RCTImageViewManager.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTViewManager.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTImageSource.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/node_modules/react-native/Libraries/Image/RCTImageLoader.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTResizeMode.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTURLRequestHandler.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTURLRequestDelegate.h \
+  /Users/DavidHu/Desktop/app_academy/flex_project/eezee/node_modules/react-native/Libraries/Image/RCTImageView.h
