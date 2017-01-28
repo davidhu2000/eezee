@@ -15,3 +15,6 @@ backend/tmp/*
 
 # Ignore Byebug command history file.
 backend/.byebug_history
+
+# ignore build
+ios/build
