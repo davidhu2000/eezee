@@ -16,12 +16,12 @@ With this mobile app, the user will be to:
 ## Wireframes
 
 #### Home screen
-The landing screen features a simple, intuitive UI with a search field, collapsible menu, and the application logo.  
+The landing screen features a simple, intuitive UI with a search field, collapsible menu, and the application logo.
 
 ![home_screen][home_screen]
 
 #### Search movies by title
-The search feature allows users to search for movies by title with an autocomplete function, and displays which streaming services (if any) the movie is available on, with links directly to the site. 
+The search feature allows users to search for movies by title with an autocomplete function, and displays which streaming services (if any) the movie is available on, with links directly to the site.
 
 ![search][search_results]
 
