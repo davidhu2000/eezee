@@ -99,6 +99,6 @@ Tom's primary responsibilities will be:
 - Add user recommendation based on prior searches and related movies to current search.
 - Setup Facebook Login.
 
-[home_screen]: ./wireframes/home_screens.png "Home Screen"
-[search_results]: ./wireframes/search_screens.png "Search Results"
+[home_screen]: ./wireframes/home_screen.png "Home Screen"
+[search_results]: ./wireframes/search_results.png "Search Results"
 [wireframes]: ./wireframes
