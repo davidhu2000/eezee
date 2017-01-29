@@ -18,3 +18,4 @@ backend/.byebug_history
 
 # ignore build
 ios/build
+android/build
