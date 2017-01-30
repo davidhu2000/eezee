@@ -1,4 +1,1 @@
-json.id @user.id
-json.username @user.username
-json.preferences @user.preferences
-json.image_url @user.image_url
+json.partial! "users/user", user: @user
