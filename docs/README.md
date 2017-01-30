@@ -31,9 +31,9 @@ The search feature allows users to search for movies by title with an autocomple
 
 The mobile application will be create using the following technologies:
 
-- React Native
-- Redux
-- Rails
+- React Native to create frontend interface
+- Redux to manage state
+- ExpressJS as backend API
 
 We will also utilize several public APIs to fetch the necessary information.
 
