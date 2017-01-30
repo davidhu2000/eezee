@@ -1,5 +1,5 @@
 import { AppRegistry } from 'react-native';
 
-import App from './src/app.React';
+import Eezee from './src/eezee.react';
 
-AppRegistry.registerComponent('eezee', () => App);
+AppRegistry.registerComponent('eezee', () => Eezee);

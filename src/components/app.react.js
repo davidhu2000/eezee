@@ -1,22 +1,21 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import configureStore from './store/store';
 import {
-  AppRegistry,
-  Text
+  Text,
+  View
 } from 'react-native';
 
-import Header from './components/header.react';
-
-const store = configureStore();
+import Header from './common/header.react';
+import SearchBar from './search/search_bar.react';
 
 class App extends React.Component {
 
   render() {
     return (
-      <Provider store={store}>
+      <View>
         <Header text={'Eezee'} />
-      </Provider>
+        <SearchBar />
+      </View>
     );
   }
 }
