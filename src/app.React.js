@@ -6,6 +6,8 @@ import {
   Text
 } from 'react-native';
 
+import Header from './components/header.react';
+
 const store = configureStore();
 
 class App extends React.Component {
@@ -13,7 +15,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Text>Welcome to Eezee</Text>
+        <Header text={'Eezee'} />
       </Provider>
     );
   }
