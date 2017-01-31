@@ -18,4 +18,21 @@ class App extends React.Component {
   }
 }
 
+const styles = {
+  viewStyle: {
+    flex: 1,
+    backgroundColor: '#3B5998'
+  },
+  textStyle: {
+    color: '#fff',
+    fontFamily: 'HelveticaNeue-Bold',
+    fontSize: 60
+  },
+  searchArea: {
+    marginTop: 150,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+};
+
 export default App;
