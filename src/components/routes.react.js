@@ -4,9 +4,10 @@ import { Scene, Router, Action } from 'react-native-router-flux';
 import { Header, Button } from './common';
 
 import UserForm from './user_form/user_form.react';
+import SignupForm from './user_form/signup_form.react';
 
 const Routes = () => (
-  <Router sceneStyle={{ paddingTop: 65 }}>
+  <Router sceneStyle={{ paddingTop: 65, backgroundColor: 'white' }}>
     <Scene
       key='splash'
       component={ Header }
@@ -24,6 +25,12 @@ const Routes = () => (
       component={ UserForm }
       title='Sign In'
       initial
+    />
+
+    <Scene
+      key='signupForm'
+      component={ SignupForm }
+      title='SignupForm'
     />
 
   </Router>
