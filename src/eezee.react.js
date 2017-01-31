@@ -11,6 +11,8 @@ import App from './components/app.react';
 
 const store = configureStore();
 
+window.store = store;
+
 class Eezee extends React.Component {
 
   render() {
