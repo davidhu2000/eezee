@@ -8,7 +8,7 @@ const testReducer = (state = _defaultState, action) => {
   console.log(action);
   switch(action.type) {
     case RECEIVE_ERRORS:
-      return [];
+      return action.errors;
     case CLEAR_ERRORS:
       return [];
     default:

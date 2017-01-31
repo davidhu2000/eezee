@@ -24,10 +24,21 @@ class UserForm extends React.Component {
     };
   }
 
+  renderErrors() {
+    if(this.props.errors[0]) {
+      return (
+        <Text>
+          { this.props.errors[0] }
+        </Text>
+      )
+    }
+  }
+
   render() {
     // console.log(this.state);
     return (
       <View style={ styles.formStyle }>
+        { this.renderErrors() }
 
         <Input
            label="Email"
@@ -44,7 +55,8 @@ class UserForm extends React.Component {
            secureTextEntry
          />
 
-       <Button buttonAction={ () => this.props.login(this.state) }>
+
+        <Button buttonAction={ () => this.props.login(this.state) }>
           Log In
         </Button>
 
@@ -59,9 +71,10 @@ const styles = {
   }
 };
 
-const mapStateToProps = ({ session }) => ({
+const mapStateToProps = ({ session, errors }) => ({
   user: session.currentUser,
-  loggedIn: Boolean(session.currentUser)
+  loggedIn: Boolean(session.currentUser),
+  errors
 });
 
 const mapDispatchToProps = dispatch => ({
