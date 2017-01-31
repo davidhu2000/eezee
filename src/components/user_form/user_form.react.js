@@ -21,46 +21,45 @@ class UserForm extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
+
+    <View style={ styles.viewStyle }>
       <View style={ styles.formStyle }>
-        <Card>
-          <CardSection>
             <Input
                label="Email"
                placeholder="email@gmail.com"
                onChangeText={this.update('email')}
                value={this.state.email}
              />
-          </CardSection>
 
-          <CardSection>
             <Input
                label="Password"
                placeholder="password"
                onChangeText={this.update('password')}
                value={this.state.password}
              />
-          </CardSection>
 
-          <CardSection>
-            <Button>
+           <Button>
               Log In
-            </Button>
-          </CardSection>
-
-        </Card>
-
+           </Button>
       </View>
+    </View>
     );
   }
 }
 
 const styles = {
+  viewStyle: {
+    flex: 1,
+    backgroundColor: '#3B5998'
+  },
   formStyle: {
-    borderWidth: 1,
-    borderColor: '#000',
-    height: 200
+    marginTop: 100,
+    marginLeft: 25,
+    marginRight: 25,
+    padding: 25,
+    backgroundColor: '#F8F8F8',
+    height: 225
   }
 };
 
