@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 
-import Header from './common/header.react';
+import { Header } from './common';
 import SearchBar from './search/search_bar.react';
 
 class App extends React.Component {
