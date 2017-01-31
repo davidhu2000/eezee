@@ -25,19 +25,21 @@ class SearchBar extends React.Component {
 
 const styles = {
   viewStyle: {
-    height: 40
+    height: 45,
+    flex: 1,
+    width: null
   },
   inputStyle: {
     backgroundColor: '#f8f8f8',
-    marginTop: 30,
+    marginTop: 250,
     marginLeft: 5,
     marginRight: 5,
+    paddingLeft: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     elevation: 2,
-    height: 30,
-    paddingLeft: 5
+    height: 45
   }
 };
 

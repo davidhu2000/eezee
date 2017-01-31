@@ -12,12 +12,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.viewStyle}>
         <Header text={'Eezee'} />
         <SearchBar />
       </View>
     );
   }
 }
+
+const styles = {
+  viewStyle: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    backgroundColor: '#3B5998'
+  }
+};
 
 export default App;
