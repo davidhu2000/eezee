@@ -5,16 +5,14 @@ import {
   View
 } from 'react-native';
 
-import { Header } from './common';
-import SearchBar from './search/search_bar.react';
+import Routes from './routes.react';
 
 class App extends React.Component {
 
   render() {
     return (
       <View>
-        <Header text={'Eezee'} />
-        <SearchBar />
+        <Routes />
       </View>
     );
   }

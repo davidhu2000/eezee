@@ -8,9 +8,9 @@ class SearchBar extends React.Component {
       query: ''
     };
   }
-
+  // TODO: Live update result, lodash debounce, or wait for button click
   render() {
-    console.log(this.state.query);
+    // console.log(this.state.query)
     return (
       <View style={ styles.viewStyle }>
         <TextInput
