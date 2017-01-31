@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
 import { CardSection, Card, Input, Button } from '../common';
-import { login } from '../../actions/session_actions';
+import { signup } from '../../actions/session_actions';
 
 class UserForm extends React.Component {
   constructor(props) {
@@ -56,12 +56,12 @@ class UserForm extends React.Component {
          />
 
 
-        <Button buttonAction={ () => this.props.login(this.state) }>
-          Log In
+        <Button buttonAction={ () => this.props.signup(this.state) }>
+          Signup
         </Button>
 
-        <Button buttonAction={ () => Actions.signupForm() }>
-          { "Don't have an account? Sign up" }
+        <Button buttonAction={ () => Actions.userForm() }>
+          { "Already have an account? Login" }
         </Button>
 
       </View>
@@ -82,7 +82,7 @@ const mapStateToProps = ({ session, errors }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  login: user => dispatch(login(user))
+  signup: user => dispatch(signup(user))
 })
 
 export default connect(
