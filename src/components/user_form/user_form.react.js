@@ -30,7 +30,7 @@ class UserForm extends React.Component {
         <Text>
           { this.props.errors[0] }
         </Text>
-      )
+      );
     }
   }
 
@@ -56,14 +56,18 @@ class UserForm extends React.Component {
            secureTextEntry
          />
 
-
         <Button buttonAction={ () => this.props.login(this.state) }>
           Log In
         </Button>
 
-        <Button buttonAction={ () => Actions.signupForm() }>
-          { "Don't have an account? Sign up" }
-        </Button>
+        <View style={ styles.btmbtn }>
+          <Text>Don't have an account?</Text>
+
+          <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => Actions.signupForm() }>
+            Sign up
+          </Text>
+        </View>
+
       </View>
     </View>
     );
@@ -76,12 +80,25 @@ const styles = {
     backgroundColor: '#3B5998'
   },
   formStyle: {
-    marginTop: 100,
+    marginTop: 150,
     marginLeft: 25,
     marginRight: 25,
     padding: 25,
     backgroundColor: '#F8F8F8',
-    height: 225
+    height: 250,
+    shadowColor: 'rgba(0, 0, 0, 0.12)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
+  },
+  btmbtn: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    margin: 20
   }
 };
 
@@ -93,7 +110,7 @@ const mapStateToProps = ({ session, errors }) => ({
 
 const mapDispatchToProps = dispatch => ({
   login: user => dispatch(login(user))
-})
+});
 
 export default connect(
   mapStateToProps,
