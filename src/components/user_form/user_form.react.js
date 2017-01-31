@@ -35,8 +35,9 @@ class UserForm extends React.Component {
   }
 
   render() {
-    // console.log(this.state);
     return (
+
+    <View style={ styles.viewStyle }>
       <View style={ styles.formStyle }>
         { this.renderErrors() }
 
@@ -63,15 +64,24 @@ class UserForm extends React.Component {
         <Button buttonAction={ () => Actions.signupForm() }>
           { "Don't have an account? Sign up" }
         </Button>
-
       </View>
+    </View>
     );
   }
 }
 
 const styles = {
+  viewStyle: {
+    flex: 1,
+    backgroundColor: '#3B5998'
+  },
   formStyle: {
-    height: 200
+    marginTop: 100,
+    marginLeft: 25,
+    marginRight: 25,
+    padding: 25,
+    backgroundColor: '#F8F8F8',
+    height: 225
   }
 };
 

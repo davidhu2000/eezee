@@ -23,7 +23,7 @@ const Routes = () => (
     <Scene
       key='userForm'
       component={ UserForm }
-      title='Form'
+      title='Sign In'
       initial
     />
 
