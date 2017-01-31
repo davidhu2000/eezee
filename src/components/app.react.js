@@ -14,7 +14,10 @@ class App extends React.Component {
     return (
       <View style={styles.viewStyle}>
         <Header text={'Eezee'} />
-        <SearchBar />
+        <View style={styles.searchArea}>
+          <Text style={styles.textStyle}>Eezee</Text>
+          <SearchBar />
+        </View>
       </View>
     );
   }
@@ -23,8 +26,17 @@ class App extends React.Component {
 const styles = {
   viewStyle: {
     flex: 1,
-    justifyContent: 'flex-start',
     backgroundColor: '#3B5998'
+  },
+  textStyle: {
+    color: '#fff',
+    fontFamily: 'HelveticaNeue-Bold',
+    fontSize: 60
+  },
+  searchArea: {
+    marginTop: 150,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 };
 
