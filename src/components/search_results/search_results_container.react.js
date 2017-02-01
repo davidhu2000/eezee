@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import SearchResultItem from './search_results_item.react';
-// import axios from 'axios';
+import axios from 'axios';
+import api from '../../../guidebox_api';
 
 class SearchResults extends React.Component {
 
@@ -17,6 +18,8 @@ class SearchResults extends React.Component {
     //figure out how to access guidebox API
     // axios.get('')
     //   .then(response => this.setState({ search_results: response.data }));
+
+    console.log(api);
   }
 
 
