@@ -18,8 +18,6 @@ const SearchResultItem = ({ resultItem }) => {
     containerStyle
   } = styles;
 
-
-
   return (
       <View style={ containerStyle }>
         <View style={ headerContentStyle }>

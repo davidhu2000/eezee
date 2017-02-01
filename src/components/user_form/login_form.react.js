@@ -73,7 +73,7 @@ class LoginForm extends React.Component {
            <SearchInput
               placeholder="movie search"
             />
-          <Text style={{fontSize: 20, color: '#3B5998'}}>Profile</Text>
+          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
        </View>
       </View>
     );
@@ -82,7 +82,7 @@ class LoginForm extends React.Component {
 
 const styles = {
   formStyle: {
-    marginTop: 100,
+    marginTop: 210,
     marginLeft: 25,
     marginRight: 25,
     padding: 25,

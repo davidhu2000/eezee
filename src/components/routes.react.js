@@ -1,9 +1,7 @@
 import React from 'react';
 import { Scene, Router, Action } from 'react-native-router-flux';
-
 import { Header, Button } from './common';
 import Splash from './splash/splash.react';
-
 import LoginForm from './user_form/login_form.react';
 import SignupForm from './user_form/signup_form.react';
 import SearchResults from './search_results/search_results_container.react';
@@ -14,6 +12,7 @@ const Routes = () => (
       key='splash'
       component={ Splash }
       title="Welcome"
+      initial
     />
 
     <Scene
@@ -26,14 +25,12 @@ const Routes = () => (
       key='signupForm'
       component={ SignupForm }
       title='Sign Up'
-      initial
     />
 
     <Scene
       key='searchResults'
       component={ SearchResults }
       title='Search Results'
-      initial
     />
 
   </Router>
