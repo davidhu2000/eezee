@@ -11,7 +11,7 @@ class SearchResults extends React.Component {
       search_results: []
     };
   }
-  
+
   componentWillMount() {
 
     //TODO figure out how to access guidebox API
@@ -39,7 +39,7 @@ class SearchResults extends React.Component {
 const styles = {
   scrollStyle: {
 
-  //TODO add scrollStyle here
+  //TODO add scrollStyle here, or don't
 
   }
 };
