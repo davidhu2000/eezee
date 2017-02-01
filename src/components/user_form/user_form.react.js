@@ -36,8 +36,7 @@ class UserForm extends React.Component {
 
   render() {
     return (
-
-    <View style={ styles.viewStyle }>
+     <View style={ styles.pageStyle }>
       <View style={ styles.formStyle }>
         { this.renderErrors() }
 
@@ -57,30 +56,30 @@ class UserForm extends React.Component {
          />
 
         <Button buttonAction={ () => this.props.login(this.state) }>
-          Log In
+          Login
         </Button>
 
         <View style={ styles.btmbtn }>
           <Text>Don't have an account?</Text>
 
           <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => Actions.signupForm() }>
-            Sign up
+            Sign Up
           </Text>
         </View>
+       </View>
 
+       <View style={ styles.footer }>
+         <Text style={{fontSize: 20, fontFamily: 'HelveticaNeue-Bold'}}>Footer</Text>
+         <Text style={{fontSize: 20, fontFamily: 'HelveticaNeue-Bold'}}>Eezee</Text>
+       </View>
       </View>
-    </View>
     );
   }
 }
 
 const styles = {
-  viewStyle: {
-    flex: 1,
-    backgroundColor: '#3B5998'
-  },
   formStyle: {
-    marginTop: 150,
+    marginTop: 100,
     marginLeft: 25,
     marginRight: 25,
     padding: 25,
@@ -99,6 +98,19 @@ const styles = {
     justifyContent: 'space-around',
     alignItems: 'center',
     margin: 20
+  },
+  pageStyle: {
+    flex: 1,
+    justifyContent: 'space-between'
+  },
+  footer: {
+    height: 50,
+    paddingRight: 25,
+    paddingLeft: 25,
+    backgroundColor: '#fff',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row'
   }
 };
 

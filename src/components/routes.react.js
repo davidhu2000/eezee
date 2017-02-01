@@ -7,30 +7,30 @@ import UserForm from './user_form/user_form.react';
 import SignupForm from './user_form/signup_form.react';
 
 const Routes = () => (
-  <Router sceneStyle={{ paddingTop: 65, backgroundColor: 'white' }}>
+  <Router sceneStyle={{ backgroundColor: '#3B5998' }}>
     <Scene
       key='splash'
       component={ Header }
-      title="Eezee"
+      title="Welcome"
     />
 
     <Scene
       key='result'
       component={ Button }
-      title='Result'
+      title='Search'
     />
 
     <Scene
       key='userForm'
       component={ UserForm }
-      title='Sign In'
-      initial
+      title='Login'
     />
 
     <Scene
       key='signupForm'
       component={ SignupForm }
-      title='SignupForm'
+      title="Sign Up"
+      initial
     />
 
   </Router>
