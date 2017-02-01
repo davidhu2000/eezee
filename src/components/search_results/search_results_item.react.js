@@ -5,7 +5,7 @@ import { Card, CardSection, Button } from '../common/index';
 const SearchResultItem = ({ resultItem }) => {
   const {
     title,
-    streamingService,
+    streamingServices,
     image,
     url
   } = resultItem;

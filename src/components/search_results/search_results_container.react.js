@@ -21,10 +21,10 @@ class SearchResults extends React.Component {
 
 
   renderSearchResults() {
-    //TODO add SearchResultItem attributes here
-    // return this.state.search_results.map(result_item =>
-    //   <SearchResultItem attributes />
-    // );
+    // TODO add SearchResultItem attributes here
+    return this.state.search_results.map(result_item =>
+       <SearchResultItem key={ result_item.title } resultItem={ result_item } />
+    );
   }
 
   render() {
