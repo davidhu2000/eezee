@@ -1,27 +1,47 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
-import SearchResultItem from './search_results';
+import SearchResultItem from './search_results_item';
+import axios from 'axios';
 
 class SearchResults extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      search_results: []
+    };
+  }
+  
+  componentWillMount() {
+
+    //TODO figure out how to access guidebox API
+    // axios.get('')
+    //   .then(response => this.setState({ search_results: response.data }));
+  }
 
 
+  renderSearchResults() {
+    //TODO add SearchResultItem attributes here
+    // return this.state.search_results.map(result_item =>
+    //   <SearchResultItem attributes />
+    // );
+  }
 
   render() {
-    console.log(this.state);
-
-    renderSearchResultItems() {
-      return this.state.search_result_item.map(album =>
-        <AlbumDetail key={album.title} album={album} />
-      );
-    }
-
     return (
-      <ScrollView>
-        {this.()}
+      <ScrollView style={ styles.scrollStyle }>
+        { this.renderSearchResults() }
       </ScrollView>
     );
   }
 }
 
-export default ;
+const styles = {
+  scrollStyle: {
+
+  //TODO add scrollStyle here
+
+  }
+};
+
+export default SearchResults;
