@@ -3,7 +3,7 @@ import { Scene, Router, Action } from 'react-native-router-flux';
 
 import { Header, Button } from './common';
 
-import UserForm from './user_form/user_form.react';
+import LoginForm from './user_form/login_form.react';
 import SignupForm from './user_form/signup_form.react';
 
 const Routes = () => (
@@ -24,7 +24,7 @@ const Routes = () => (
 
     <Scene
       key='userForm'
-      component={ UserForm }
+      component={ LoginForm }
       title='Login'
       hideNavBar={true}
     />

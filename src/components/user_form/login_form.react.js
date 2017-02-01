@@ -6,7 +6,7 @@ import { Actions } from 'react-native-router-flux';
 import { CardSection, Card, Input, Button } from '../common';
 import { login } from '../../actions/session_actions';
 
-class UserForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -127,4 +127,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserForm);
+)(LoginForm);
