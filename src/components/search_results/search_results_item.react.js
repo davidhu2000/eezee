@@ -2,39 +2,33 @@ import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
 // import { Card, CardSection, Button } from '../common/index';
 
-const SearchResultItem = ({ resultItem }) => {
-  const {
-    title,
-    streamingServices,
-    image,
-    url
-  } = resultItem;
+class SearchResultItem extends React.Component {
+  constructor(props){
+    super(props);
+  }
 
-  const {
-    headerContentStyle,
-    headerTextStyle,
-    imageContainerStyle,
-    imageStyle,
-    containerStyle
-  } = styles;
+  render() {
 
+    const {
+      headerContentStyle,
+      headerTextStyle,
+      imageContainerStyle,
+      imageStyle,
+      containerStyle
+    } = styles;
 
-
-  return (
+    return (
       <View style={ containerStyle }>
         <View style={ headerContentStyle }>
-          <Text style={ headerTextStyle }>{ title }</Text>
+          <Text style={ headerTextStyle }>{ this.props.title }</Text>
         </View>
 
         <View style={ imageContainerStyle }>
-          <Image
-            style={ imageStyle }
-            source={{ uri: image }}
-          />
         </View>
       </View>
-  );
-};
+    );
+  }
+}
 
 const styles = {
   containerStyle: {
