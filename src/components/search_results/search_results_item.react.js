@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
-import { Card, CardSection, Button } from '../common/index';
+// import { Card, CardSection, Button } from '../common/index';
 
 const SearchResultItem = ({ resultItem }) => {
   const {
@@ -14,14 +14,14 @@ const SearchResultItem = ({ resultItem }) => {
     headerContentStyle,
     headerTextStyle,
     imageContainerStyle,
-    imageStyle
+    imageStyle,
+    containerStyle
   } = styles;
 
 
 
   return (
-    <Card>
-      <CardSection>
+      <View style={ containerStyle }>
         <View style={ headerContentStyle }>
           <Text style={ headerTextStyle }>{ title }</Text>
         </View>
@@ -32,18 +32,14 @@ const SearchResultItem = ({ resultItem }) => {
             source={{ uri: image }}
           />
         </View>
-      </CardSection>
-
-      <CardSection>
-        <Button onPress={ () => Linking.openURL(url) }>
-          Watch now
-        </Button>
-      </CardSection>
-    </Card>
+      </View>
   );
 };
 
 const styles = {
+  containerStyle: {
+
+  },
   headerContentStyle: {
     flexDirection: 'column',
     justifyContent: 'space-around'
