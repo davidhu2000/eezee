@@ -1,33 +1,53 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
 import SearchResultItem from './search_results_item.react';
-// import axios from 'axios';
+import axios from 'axios';
+import api from '../../../guidebox_api';
 
 class SearchResults extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      search_results: []
+      movies: []
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
 
-    //figure out how to access guidebox API
-    // axios.get('')
-    //   .then(response => this.setState({ search_results: response.data }));
+    let query = 'Batman';
+
+    let url = `https://api-public.guidebox.com/v2/search?api_key=${api}&type=movie&field=title&precision=fuzzy&query=${query}`
+
+    fetch(url)
+    .then(
+      res => res.json()
+    ).then(
+      resJson => {
+
+        let movies = resJson.results;
+        if(movies.length > 5) {
+          movies = movies.slice(0, 5);
+        }
+
+        this.setState({ movies });
+      }
+    ).catch(
+      err => console.log(err)
+    )
+
   }
 
 
   renderSearchResults() {
     // add SearchResultItem attributes here
-    return this.state.search_results.map(result_item =>
+    return this.state.movies.map(result_item =>
        <SearchResultItem key={ result_item.title } resultItem={ result_item } />
     );
   }
 
   render() {
+    console.log(this.state);
     return (
       <ScrollView style={ styles.scrollStyle }>
         { this.renderSearchResults() }
@@ -38,8 +58,7 @@ class SearchResults extends React.Component {
 
 const styles = {
   scrollStyle: {
-
-  // add scrollStyle here, or don't
+    marginTop: 70
 
   }
 };
