@@ -73,7 +73,7 @@ class LoginForm extends React.Component {
            <SearchInput
               placeholder="movie search"
             />
-         <Text style={{fontSize: 20, color: '#3B5998'}}>Eezee</Text>
+          <Text style={{fontSize: 20, color: '#3B5998'}}>Profile</Text>
        </View>
       </View>
     );
