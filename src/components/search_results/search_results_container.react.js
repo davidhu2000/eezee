@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
-import SearchResultItem from './search_results_item';
-import axios from 'axios';
+import SearchResultItem from './search_results_item.react';
+// import axios from 'axios';
 
 class SearchResults extends React.Component {
 
@@ -14,14 +14,14 @@ class SearchResults extends React.Component {
 
   componentWillMount() {
 
-    //TODO figure out how to access guidebox API
+    //figure out how to access guidebox API
     // axios.get('')
     //   .then(response => this.setState({ search_results: response.data }));
   }
 
 
   renderSearchResults() {
-    // TODO add SearchResultItem attributes here
+    // add SearchResultItem attributes here
     return this.state.search_results.map(result_item =>
        <SearchResultItem key={ result_item.title } resultItem={ result_item } />
     );
@@ -39,7 +39,7 @@ class SearchResults extends React.Component {
 const styles = {
   scrollStyle: {
 
-  //TODO add scrollStyle here, or don't
+  // add scrollStyle here, or don't
 
   }
 };
