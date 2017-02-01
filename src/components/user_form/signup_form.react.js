@@ -3,7 +3,7 @@ import { Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-import { CardSection, Card, Input, Button } from '../common';
+import { CardSection, Card, Input, Button, SearchInput } from '../common';
 import { signup } from '../../actions/session_actions';
 
 class UserForm extends React.Component {
@@ -30,7 +30,7 @@ class UserForm extends React.Component {
         <Text>
           { this.props.errors[0] }
         </Text>
-      )
+      );
     }
   }
 
@@ -70,8 +70,11 @@ class UserForm extends React.Component {
       </View>
 
       <View style={ styles.footer }>
-        <Text style={{fontSize: 20, fontFamily: 'HelveticaNeue-Bold'}}>Footer</Text>
-        <Text style={{fontSize: 20, fontFamily: 'HelveticaNeue-Bold'}}>Eezee</Text>
+        <Text style={{fontSize: 20, color: '#3B5998'}}>Search:</Text>
+        <SearchInput
+           placeholder="movie search"
+         />
+       <Text style={{fontSize: 20, color: '#3B5998'}}>Profile</Text>
       </View>
      </View>
     );

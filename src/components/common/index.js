@@ -4,3 +4,4 @@ export * from './card.react';
 export * from './header.react';
 export * from './input.react';
 export * from './spinner.react';
+export * from './search_input.react';

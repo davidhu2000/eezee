@@ -12,28 +12,24 @@ const Routes = () => (
       key='splash'
       component={ Header }
       title="Welcome"
-      hideNavBar={true}
     />
 
     <Scene
       key='result'
       component={ Button }
       title='Search'
-      hideNavBar={true}
     />
 
     <Scene
       key='userForm'
       component={ LoginForm }
       title='Login'
-      hideNavBar={true}
     />
 
     <Scene
       key='signupForm'
       component={ SignupForm }
       title="Sign Up"
-      hideNavBar={true}
       initial
     />
 
