@@ -4,6 +4,7 @@ import { Text, View } from 'react-native';
 import firebase from 'firebase';
 
 import Routes from './routes.react';
+import { Header } from './common';
 
 class App extends React.Component {
 
