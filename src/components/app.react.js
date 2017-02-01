@@ -9,11 +9,11 @@ class App extends React.Component {
 
   componentWillMount() {
     var config = {
-      apiKey: "AIzaSyDOCdS9Ho5MluRHsqABjnIRjO0dZW03tjs",
-      authDomain: "eezee-33067.firebaseapp.com",
-      databaseURL: "https://eezee-33067.firebaseio.com",
-      storageBucket: "eezee-33067.appspot.com",
-      messagingSenderId: "904163115748"
+      apiKey: "AIzaSyCrY2NuM-0PeNXy4XWYDsCsEblu74eNSj4",
+      authDomain: "eezee-4d721.firebaseapp.com",
+      databaseURL: "https://eezee-4d721.firebaseio.com",
+      storageBucket: "eezee-4d721.appspot.com",
+      messagingSenderId: "157950910317"
     };
     firebase.initializeApp(config);
   }
