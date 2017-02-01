@@ -19,4 +19,4 @@ const styles = {
   }
 };
 
-export { Splash };
+export default Splash;

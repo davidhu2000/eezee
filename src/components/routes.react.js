@@ -2,7 +2,7 @@ import React from 'react';
 import { Scene, Router, Action } from 'react-native-router-flux';
 
 import { Header, Button } from './common';
-import { Splash } from './splash';
+import Splash from './splash/splash.react';
 
 import LoginForm from './user_form/login_form.react';
 import SignupForm from './user_form/signup_form.react';
