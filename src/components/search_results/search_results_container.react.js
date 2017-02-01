@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+
 import SearchResultItem from './search_results_item.react';
-import axios from 'axios';
 import api from '../../../guidebox_api';
 
 class SearchResults extends React.Component {
@@ -41,8 +42,15 @@ class SearchResults extends React.Component {
 
   renderSearchResults() {
     // add SearchResultItem attributes here
-    return this.state.movies.map(result_item =>
-       <SearchResultItem key={ result_item.title } resultItem={ result_item } />
+    return this.state.movies.map( movie =>
+      <TouchableOpacity onPress={ () => Actions.movieDetail() }>
+        <SearchResultItem
+          key={ movie.title }
+          movieId={ movie.id }
+          title={ movie.title }
+         />
+      </TouchableOpacity>
+
     );
   }
 
@@ -59,7 +67,6 @@ class SearchResults extends React.Component {
 const styles = {
   scrollStyle: {
     marginTop: 70
-
   }
 };
 
