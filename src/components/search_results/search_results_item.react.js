@@ -8,15 +8,6 @@ class SearchResultItem extends React.Component {
   }
 
   render() {
-
-    const {
-      headerContentStyle,
-      headerTextStyle,
-      imageContainerStyle,
-      imageStyle,
-      containerStyle
-    } = styles;
-
     return (
       <View style={ containerStyle }>
         <View style={ headerContentStyle }>
