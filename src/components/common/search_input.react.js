@@ -6,6 +6,7 @@ const SearchInput = ({ label, value, onChangeText, placeholder, secureTextEntry 
 
   return (
     <View style={containerStyle}>
+      <Text style={labelStyle}>{label}</Text>
       <TextInput
         secureTextEntry={secureTextEntry}
         placeholder={placeholder}
@@ -22,17 +23,24 @@ const SearchInput = ({ label, value, onChangeText, placeholder, secureTextEntry 
 const styles = {
   inputStyle: {
     color: '#000',
-    paddingLeft: 10,
     flex: 1,
-    fontSize: 15
+    fontSize: 15,
+    paddingLeft: 20
+  },
+  labelStyle: {
+    fontSize: 15,
+    paddingLeft: 20
   },
   containerStyle: {
+    flex: 2,
     height: 35,
-    width: 150,
+    width: 250,
     borderWidth: 1,
     borderRadius: 2,
     borderColor: '#ddd',
-    // flexGrow: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
     backgroundColor: '#fff',
     shadowColor: 'rgba(0, 0, 0, 0.12)',
     shadowOpacity: 0.8,

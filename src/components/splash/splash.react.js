@@ -23,11 +23,11 @@ const Splash = () => {
      </View>
 
      <View style={ styles.footer }>
-       <Text style={{fontSize: 20, color: '#3B5998'}}>Search:</Text>
+       <Text style={{flex: 1, fontSize: 20, color: '#3B5998', paddingLeft: 20}} onPress={ () => Actions.userForm() }>Profile</Text>
          <SearchInput
-            placeholder="movie search"
+           label="Search"
+            placeholder="Movie Name"
           />
-        <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
      </View>
     </View>
   );
@@ -64,10 +64,10 @@ const styles = {
     height: 50,
     paddingRight: 25,
     paddingLeft: 25,
-    backgroundColor: '#fff',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: 'row'
+    backgroundColor: '#F8F8F8',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
   }
 };
 
