@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ScrollView, TouchableOpacity, View } from 'react-native';
+import { ScrollView, TouchableOpacity, View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-
+import NavBar from '../common/navbar.react';
 import SearchResultItem from './search_results_item.react';
 import api from '../../../guidebox_api';
+import { Spinner } from '../common';
 
 import { receiveAllMovies } from '../../actions/movies_actions';
 
@@ -54,24 +55,44 @@ class SearchResults extends React.Component {
   }
 
   render() {
+    if(this.state.movies.length > 0){
     return (
       <View style={ styles.pageStyle }>
+        <NavBar />
         <ScrollView style={ styles.scrollStyle }>
           { this.renderSearchResults() }
         </ScrollView>
+
+        <View style={ styles.footer }>
+          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
+          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+        </View>
+
       </View>
     );
+    } else {
+    return (
+      <Spinner />
+    )
+   }
   }
 }
 
 const styles = {
   pageStyle: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    // alignItems: 'center',
     flex: 1
   },
   scrollStyle: {
-    marginTop: 80
+    margin: 25,
+    backgroundColor: '#F8F8F8'
+  },
+  footer: {
+    height: 50,
+    backgroundColor: '#F8F8F8',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
   }
 };
 

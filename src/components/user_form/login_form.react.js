@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-
+import NavBar from '../common/navbar.react';
 import { CardSection, Card, Input, Button, SearchInput } from '../common';
 import { login } from '../../actions/session_actions';
 
@@ -37,6 +37,8 @@ class LoginForm extends React.Component {
   render() {
     return (
      <View style={ styles.pageStyle }>
+      <NavBar />
+
       <View style={ styles.formStyle }>
         { this.renderErrors() }
 
@@ -67,13 +69,9 @@ class LoginForm extends React.Component {
           </Text>
         </View>
        </View>
-
        <View style={ styles.footer }>
-         <Text style={{flex: 1, fontSize: 20, color: '#3B5998', paddingLeft: 20}} onPress={ () => Actions.splash() }>Home</Text>
-           <SearchInput
-              label="Search"
-              placeholder="Movie Name"
-            />
+         <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
+         <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
        </View>
       </View>
     );
@@ -82,9 +80,9 @@ class LoginForm extends React.Component {
 
 const styles = {
   formStyle: {
-    marginTop: 210,
     marginLeft: 25,
     marginRight: 25,
+    marginBottom: 225,
     padding: 25,
     backgroundColor: '#F8F8F8',
     height: 250,
@@ -108,8 +106,6 @@ const styles = {
   },
   footer: {
     height: 50,
-    paddingRight: 25,
-    paddingLeft: 25,
     backgroundColor: '#F8F8F8',
     justifyContent: 'space-around',
     alignItems: 'center',

@@ -13,24 +13,30 @@ const Routes = () => (
       key='splash'
       component={ Splash }
       title="Welcome"
+      hideNavBar={true}
+
     />
 
     <Scene
       key='userForm'
       component={ LoginForm }
       title='Login'
+      hideNavBar={true}
     />
 
     <Scene
       key='signupForm'
       component={ SignupForm }
       title='Sign Up'
+      hideNavBar={true}
+
     />
 
     <Scene
       key='searchResults'
       component={ SearchResults }
       title='Search Results'
+      hideNavBar={true}
       initial
     />
 
@@ -38,6 +44,7 @@ const Routes = () => (
       key='movieDetail'
       component={ SearchResultDetail }
       title='Movie'
+      hideNavBar={true}
     />
 
   </Router>
