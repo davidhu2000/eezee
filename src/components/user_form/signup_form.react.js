@@ -89,7 +89,6 @@ const styles = {
   formStyle: {
     marginLeft: 25,
     marginRight: 25,
-    marginBottom: 225,
     padding: 25,
     backgroundColor: '#F8F8F8',
     height: 250,

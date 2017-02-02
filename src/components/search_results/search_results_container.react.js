@@ -44,7 +44,6 @@ class SearchResults extends React.Component {
 
   }
 
-
   renderSearchResults() {
     // TODO add SearchResultItem attributes here
     return this.props.movies.map( movie => {
@@ -62,9 +61,10 @@ class SearchResults extends React.Component {
       return (
         <View style={ styles.pageStyle }>
           <NavBar />
-          <ScrollView style={ styles.scrollStyle }>
+
+          <View style={ styles.scrollStyle }>
             { this.renderSearchResults() }
-          </ScrollView>
+          </View>
 
           <View style={ styles.footer }>
             <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
@@ -83,12 +83,20 @@ class SearchResults extends React.Component {
 
 const styles = {
   pageStyle: {
-    // alignItems: 'center',
-    flex: 1
+    flex: 1,
+    justifyContent: 'space-between'
   },
   scrollStyle: {
     margin: 25,
-    backgroundColor: '#F8F8F8'
+    padding: 10,
+    backgroundColor: '#F8F8F8',
+    shadowColor: 'rgba(0, 0, 0, 0.12)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
   },
   footer: {
     height: 50,
