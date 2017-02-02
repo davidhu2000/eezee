@@ -36,7 +36,7 @@ class SearchResults extends React.Component {
         if(movies && movies.length > 5) {
           movies = movies.slice(0, 5);
         }
-        this.props.receiveAllMovies(movies)
+        this.props.receiveAllMovies(movies);
       }
     ).catch(
       err => console.log(err)
@@ -50,12 +50,12 @@ class SearchResults extends React.Component {
     return this.props.movies.map( movie => {
       return (<TouchableOpacity key={ movie.title }  onPress={ () => Actions.movieDetail({ title: movie.title, movieId: movie.id }) }>
         <SearchResultItem movieId={ movie.id } title={ movie.title } poster={ movie.poster_120x171 }/>
-      </TouchableOpacity>)
+      </TouchableOpacity>);
     });
   }
 
   render() {
-    if(this.state.movies.length > 0){
+    if(this.props.movies.length > 0){
     return (
       <View style={ styles.pageStyle }>
         <NavBar />
@@ -67,13 +67,12 @@ class SearchResults extends React.Component {
           <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
           <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
         </View>
-
       </View>
     );
     } else {
     return (
       <Spinner />
-    )
+    );
    }
   }
 }
