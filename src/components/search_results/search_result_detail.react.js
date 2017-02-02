@@ -1,9 +1,10 @@
 import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
 import { connect } from 'react-redux';
-
+import { Actions } from 'react-native-router-flux';
 import { Spinner } from '../common';
 import api from '../../../guidebox_api';
+import NavBar from '../common/navbar.react';
 
 import { receiveMovie } from '../../actions/movies_actions';
 
@@ -35,10 +36,10 @@ class SearchResultDetail extends React.Component {
 
   renderStreamServices() {
     return this.props.movie.subscription_web_sources.map( st => (
-      <View key={ st.display_name }>
+      <View style={ styles.service } key={ st.display_name }>
         <Text>{ st.display_name }</Text>
       </View>
-    ))
+    ));
   }
 
   // TODO: add image support
@@ -46,47 +47,90 @@ class SearchResultDetail extends React.Component {
     if(this.props.movie.title) {
       return (
         <View style={styles.containerStyle}>
-          <View style={ styles.headerContentStyle }>
-            <Text style={ styles.headerTextStyle }>{ this.props.movie.title }</Text>
+          <NavBar />
+
+          <View style={ styles.resultdetails }>
+
+            <View style={ styles.headerContentStyle }>
+              <Text style={ styles.headerTextStyle }>{ this.props.movie.title }</Text>
+            </View>
+
+            <View style={ styles.services }>
+              { this.renderStreamServices() }
+            </View>
+
           </View>
 
-          <View style={ styles.imageContainerStyle }>
-          </View>
-
-          <View>
-            { this.renderStreamServices() }
+          <View style={ styles.footer }>
+            <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
+            <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
           </View>
         </View>
       );
       } else {
       return (
         <Spinner />
-      )
+      );
     }
 
   }
 }
 
 const styles = {
+  containerStyle: {
+    flex: 1,
+    justifyContent: 'space-between'
+  },
   headerContentStyle: {
-    flexDirection: 'column',
-    justifyContent: 'space-around'
+    padding: 10,
+    margin: 10,
+    backgroundColor: '#fff',
+    shadowColor: 'rgba(0, 0, 0, 0.12)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
+  },
+  services: {
+    padding: 10,
+    margin: 10,
+    backgroundColor: '#fff',
+    shadowColor: 'rgba(0, 0, 0, 0.12)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
+  },
+  service: {
+    margin: 10
   },
   headerTextStyle: {
-    fontSize: 18
+    fontSize: 18,
+    alignSelf: 'center'
   },
-  imageStyle: {
+  resultdetails: {
+    margin: 25,
+    padding: 10,
+    justifyContent: 'space-around',
+    backgroundColor: '#F8F8F8',
+    shadowColor: 'rgba(0, 0, 0, 0.12)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
+  },
+  footer: {
     height: 50,
-    width: 50
-  },
-  imageContainerStyle: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 10,
-    marginRight: 10
-  },
-  containerStyle: {
-    marginTop: 70
+    backgroundColor: '#F8F8F8',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
   }
 };
 
