@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { RECEIVE_QUERY } from '../actions/query_actions';
+import { RECEIVE_QUERY } from '../actions/queries_actions';
 
 const _defaultState = {
   //TODO add default state
