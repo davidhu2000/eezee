@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-
+import NavBar from '../common/navbar.react';
 import SearchResultItem from './search_results_item.react';
 import api from '../../../guidebox_api';
 
@@ -54,6 +54,7 @@ class SearchResults extends React.Component {
   render() {
     return (
       <View style={ styles.pageStyle }>
+        <NavBar />
         <ScrollView style={ styles.scrollStyle }>
           { this.renderSearchResults() }
         </ScrollView>
@@ -64,7 +65,6 @@ class SearchResults extends React.Component {
 
 const styles = {
   pageStyle: {
-    justifyContent: 'center',
     alignItems: 'center',
     flex: 1
   },
