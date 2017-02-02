@@ -5,7 +5,7 @@ const _defaultState = [];
 
 const testReducer = (state = _defaultState, action) => {
   Object.freeze(state);
-  console.log(action);
+
   switch(action.type) {
     case RECEIVE_ERRORS:
       return action.errors;

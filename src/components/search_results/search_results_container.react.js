@@ -16,6 +16,7 @@ class SearchResults extends React.Component {
     this.renderSearchResults = this.renderSearchResults.bind(this);
   }
 
+  // TODO: check for query from search
   componentWillMount() {
 
     let query = 'Batman';
@@ -44,7 +45,7 @@ class SearchResults extends React.Component {
   renderSearchResults() {
     // TODO add SearchResultItem attributes here
     return this.state.movies.map( movie => {
-      return (<TouchableOpacity key={ movie.title }  onPress={ () => Actions.movieDetail({ title: movie.title }) }>
+      return (<TouchableOpacity key={ movie.title }  onPress={ () => Actions.movieDetail({ title: movie.title, movieId: movie.id }) }>
         <SearchResultItem movieId={ movie.id } title={ movie.title } poster={ movie.poster_120x171 }/>
       </TouchableOpacity>)
     });
