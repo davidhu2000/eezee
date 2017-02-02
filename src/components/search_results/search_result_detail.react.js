@@ -10,6 +10,8 @@ class SearchResultDetail extends React.Component {
     this.state = {
       movie: {}
     }
+
+    this.renderStreamServices = this.renderStreamServices.bind(this);
   }
 
   componentWillMount() {
@@ -27,6 +29,14 @@ class SearchResultDetail extends React.Component {
 
   }
 
+  renderStreamServices() {
+    return this.state.movie.subscription_web_sources.map( st => (
+      <View key={ st.display_name }>
+        <Text>{ st.display_name }</Text>
+      </View>
+    ))
+  }
+
   // TODO: add image support
   render() {
     if(this.state.movie.title) {
@@ -37,6 +47,10 @@ class SearchResultDetail extends React.Component {
           </View>
 
           <View style={ styles.imageContainerStyle }>
+          </View>
+
+          <View>
+            { this.renderStreamServices() }
           </View>
         </View>
       );

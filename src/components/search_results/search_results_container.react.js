@@ -19,7 +19,7 @@ class SearchResults extends React.Component {
   // TODO: check for query from search
   componentWillMount() {
 
-    let query = 'Batman';
+    let query = 'Dead';
 
     let url = `https://api-public.guidebox.com/v2/search?api_key=${api}&type=movie&field=title&precision=fuzzy&query=${query}`
 
@@ -53,11 +53,11 @@ class SearchResults extends React.Component {
 
   render() {
     return (
-    <View style={ styles.pageStyle }>
-      <ScrollView style={ styles.scrollStyle }>
-        { this.renderSearchResults() }
-      </ScrollView>
-    </View>
+      <View style={ styles.pageStyle }>
+        <ScrollView style={ styles.scrollStyle }>
+          { this.renderSearchResults() }
+        </ScrollView>
+      </View>
     );
   }
 }
