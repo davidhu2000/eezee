@@ -16,6 +16,12 @@ class UserForm extends React.Component {
     };
   }
 
+  componentWillMount() {
+    if(this.props.loggedIn) {
+      Actions.searchResults();
+    }
+  }
+
   update(field) {
     return text => {
       this.setState({
@@ -107,7 +113,7 @@ const styles = {
   },
   footer: {
     height: 50,
-    
+
     backgroundColor: '#F8F8F8',
     justifyContent: 'space-around',
     alignItems: 'center',

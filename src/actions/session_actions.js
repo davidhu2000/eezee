@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 
 import { receiveErrors, clearErrors } from './errors_actions';
 
@@ -15,7 +16,8 @@ export const login = ({ email, password }) => {
       .then(
         user => {
           dispatch(clearErrors());
-          return dispatch(receiveUser(user));
+          dispatch(receiveUser(user));
+          Actions.searchResults();
         }
       ).catch(
         err => dispatch(receiveErrors(
@@ -31,7 +33,8 @@ export const signup = ({ email, password }) => {
       .then(
         user => {
           dispatch(clearErrors());
-          return dispatch(receiveUser(user))
+          dispatch(receiveUser(user));
+          Actions.searchResults();
         }
       ).catch(
         err => dispatch(receiveErrors(
