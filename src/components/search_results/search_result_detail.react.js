@@ -54,7 +54,7 @@ class SearchResultDetail extends React.Component {
           </View>
         </View>
       );
-    } else {
+      } else {
       return (
         <Spinner />
       )

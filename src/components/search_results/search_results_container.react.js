@@ -4,6 +4,7 @@ import { Actions } from 'react-native-router-flux';
 import NavBar from '../common/navbar.react';
 import SearchResultItem from './search_results_item.react';
 import api from '../../../guidebox_api';
+import { Spinner } from '../common';
 
 class SearchResults extends React.Component {
 
@@ -52,6 +53,7 @@ class SearchResults extends React.Component {
   }
 
   render() {
+    if(this.state.movies.length > 0){
     return (
       <View style={ styles.pageStyle }>
         <NavBar />
@@ -60,6 +62,11 @@ class SearchResults extends React.Component {
         </ScrollView>
       </View>
     );
+    } else {
+    return (
+      <Spinner />
+    )
+   }
   }
 }
 
