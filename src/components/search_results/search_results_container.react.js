@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, TouchableOpacity } from 'react-native';
+import { ScrollView, TouchableOpacity, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import SearchResultItem from './search_results_item.react';
@@ -43,30 +43,35 @@ class SearchResults extends React.Component {
   renderSearchResults() {
     // add SearchResultItem attributes here
     return this.state.movies.map( movie =>
-      <TouchableOpacity onPress={ () => Actions.movieDetail() }>
+      <TouchableOpacity key={movie.title}  onPress={ () => Actions.movieDetail() }>
         <SearchResultItem
           key={ movie.title }
           movieId={ movie.id }
           title={ movie.title }
          />
       </TouchableOpacity>
-
     );
   }
 
   render() {
-    console.log(this.state);
     return (
+    <View style={ styles.pageStyle }>
       <ScrollView style={ styles.scrollStyle }>
         { this.renderSearchResults() }
       </ScrollView>
+    </View>
     );
   }
 }
 
 const styles = {
+  pageStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
+  },
   scrollStyle: {
-    marginTop: 70
+    marginTop: 80
   }
 };
 
