@@ -48,32 +48,34 @@ class SearchResults extends React.Component {
   renderSearchResults() {
     // TODO add SearchResultItem attributes here
     return this.props.movies.map( movie => {
-      return (<TouchableOpacity key={ movie.title }  onPress={ () => Actions.movieDetail({ title: movie.title, movieId: movie.id }) }>
-        <SearchResultItem movieId={ movie.id } title={ movie.title } poster={ movie.poster_120x171 }/>
-      </TouchableOpacity>)
+      return (
+        <TouchableOpacity key={ movie.title }  onPress={ () => Actions.movieDetail({ title: movie.title, movieId: movie.id }) }>
+          <SearchResultItem movieId={ movie.id } title={ movie.title } poster={ movie.poster_120x171 }/>
+        </TouchableOpacity>
+      );
     });
   }
 
   render() {
-    if(this.state.movies.length > 0){
-    return (
-      <View style={ styles.pageStyle }>
-        <NavBar />
-        <ScrollView style={ styles.scrollStyle }>
-          { this.renderSearchResults() }
-        </ScrollView>
+    if(this.props.movies.length > 0){
+      return (
+        <View style={ styles.pageStyle }>
+          <NavBar />
+          <ScrollView style={ styles.scrollStyle }>
+            { this.renderSearchResults() }
+          </ScrollView>
 
-        <View style={ styles.footer }>
-          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
-          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+          <View style={ styles.footer }>
+            <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
+            <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+          </View>
+
         </View>
-
-      </View>
-    );
+      );
     } else {
-    return (
-      <Spinner />
-    )
+      return (
+        <Spinner />
+      );
    }
   }
 }
