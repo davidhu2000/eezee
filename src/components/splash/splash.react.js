@@ -6,9 +6,6 @@ import NavBar from '../common/navbar.react';
 // import { Card, CardSection, Button } from '../common/index';
 
 const Splash = () => {
-  const {
-    containerStyle
-  } = styles;
 
   return (
     <View style={ styles.pageStyle }>
@@ -24,8 +21,12 @@ const Splash = () => {
         </Button>
      </View>
      <View style={ styles.footer }>
-       <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
-       <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+       <View style={ styles.footerbutton }>
+         <Text style={ styles.footertext } onPress={ () => Actions.splash()} >Home</Text>
+       </View>
+       <View style={ styles.footerbutton }  >
+         <Text style={ styles.footertext } onPress={ () => Actions.userForm()} >Profile</Text>
+       </View>
      </View>
     </View>
   );
@@ -58,11 +59,37 @@ const styles = {
     margin: 20
   },
   footer: {
-    height: 50,
+    height: 60,
     backgroundColor: '#F8F8F8',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    shadowColor: 'rgba(0, 0, 0, 0.2)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
+  },
+  footerbutton: {
+    width: 150,
+    paddingTop: 5,
+    paddingBottom: 5,
+    borderRadius: 2,
+    backgroundColor: '#3B5998',
+    shadowColor: 'rgba(0, 0, 0, 0.2)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
+  },
+  footertext: {
+    fontSize: 20,
+    color: '#fff',
+    alignSelf: 'center'
   }
 };
 

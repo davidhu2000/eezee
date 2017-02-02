@@ -14,6 +14,7 @@ const Routes = () => (
       component={ Splash }
       title="Welcome"
       hideNavBar={true}
+
     />
 
     <Scene
