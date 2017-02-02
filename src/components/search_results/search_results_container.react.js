@@ -12,11 +12,14 @@ class SearchResults extends React.Component {
     this.state = {
       movies: []
     };
+
+    this.renderSearchResults = this.renderSearchResults.bind(this);
   }
 
-  componentDidMount() {
+  // TODO: check for query from search
+  componentWillMount() {
 
-    let query = 'Batman';
+    let query = 'Dead';
 
     let url = `https://api-public.guidebox.com/v2/search?api_key=${api}&type=movie&field=title&precision=fuzzy&query=${query}`
 
@@ -27,10 +30,9 @@ class SearchResults extends React.Component {
       resJson => {
 
         let movies = resJson.results;
-        if(movies.length > 5) {
+        if(movies && movies.length > 5) {
           movies = movies.slice(0, 5);
         }
-
         this.setState({ movies });
       }
     ).catch(
@@ -41,25 +43,21 @@ class SearchResults extends React.Component {
 
 
   renderSearchResults() {
-    // add SearchResultItem attributes here
-    return this.state.movies.map( movie =>
-      <TouchableOpacity key={movie.title}  onPress={ () => Actions.movieDetail() }>
-        <SearchResultItem
-          key={ movie.title }
-          movieId={ movie.id }
-          title={ movie.title }
-         />
-      </TouchableOpacity>
-    );
+    // TODO add SearchResultItem attributes here
+    return this.state.movies.map( movie => {
+      return (<TouchableOpacity key={ movie.title }  onPress={ () => Actions.movieDetail({ title: movie.title, movieId: movie.id }) }>
+        <SearchResultItem movieId={ movie.id } title={ movie.title } poster={ movie.poster_120x171 }/>
+      </TouchableOpacity>)
+    });
   }
 
   render() {
     return (
-    <View style={ styles.pageStyle }>
-      <ScrollView style={ styles.scrollStyle }>
-        { this.renderSearchResults() }
-      </ScrollView>
-    </View>
+      <View style={ styles.pageStyle }>
+        <ScrollView style={ styles.scrollStyle }>
+          { this.renderSearchResults() }
+        </ScrollView>
+      </View>
     );
   }
 }

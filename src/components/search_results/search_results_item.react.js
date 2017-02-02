@@ -6,7 +6,7 @@ class SearchResultItem extends React.Component {
   constructor(props){
     super(props);
   }
-
+  // TODO: add image support
   render() {
     return (
       <View>
@@ -22,9 +22,6 @@ class SearchResultItem extends React.Component {
 }
 
 const styles = {
-  // containerStyle: {
-  //
-  // },
   headerContentStyle: {
     flexDirection: 'column',
     justifyContent: 'space-around'

@@ -5,7 +5,7 @@ import Splash from './splash/splash.react';
 import LoginForm from './user_form/login_form.react';
 import SignupForm from './user_form/signup_form.react';
 import SearchResults from './search_results/search_results_container.react';
-import SearchResultItem from './search_results/search_results_item.react';
+import SearchResultDetail from './search_results/search_result_detail.react';
 
 const Routes = () => (
   <Router sceneStyle={{ backgroundColor: '#3B5998' }}>
@@ -36,7 +36,7 @@ const Routes = () => (
 
     <Scene
       key='movieDetail'
-      component={ SearchResultItem }
+      component={ SearchResultDetail }
       title='Movie'
     />
 
