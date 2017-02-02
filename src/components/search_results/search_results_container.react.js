@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { ScrollView, TouchableOpacity, View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import NavBar from '../common/navbar.react';
 import SearchResultItem from './search_results_item.react';
 import api from '../../../guidebox_api';
 import { Spinner } from '../common';
+
+import { receiveAllMovies } from '../../actions/movies_actions';
 
 class SearchResults extends React.Component {
 
@@ -29,12 +32,11 @@ class SearchResults extends React.Component {
       res => res.json()
     ).then(
       resJson => {
-
         let movies = resJson.results;
         if(movies && movies.length > 5) {
           movies = movies.slice(0, 5);
         }
-        this.setState({ movies });
+        this.props.receiveAllMovies(movies)
       }
     ).catch(
       err => console.log(err)
@@ -45,7 +47,7 @@ class SearchResults extends React.Component {
 
   renderSearchResults() {
     // TODO add SearchResultItem attributes here
-    return this.state.movies.map( movie => {
+    return this.props.movies.map( movie => {
       return (<TouchableOpacity key={ movie.title }  onPress={ () => Actions.movieDetail({ title: movie.title, movieId: movie.id }) }>
         <SearchResultItem movieId={ movie.id } title={ movie.title } poster={ movie.poster_120x171 }/>
       </TouchableOpacity>)
@@ -94,4 +96,15 @@ const styles = {
   }
 };
 
-export default SearchResults;
+const mapStateToProps = state => ({
+  movies: state.movies.index
+});
+
+const mapDispatchToProps = dispatch => ({
+  receiveAllMovies: movies => dispatch(receiveAllMovies(movies))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchResults);
