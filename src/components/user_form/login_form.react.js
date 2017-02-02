@@ -16,6 +16,13 @@ class LoginForm extends React.Component {
     };
   }
 
+  componentWillMount() {
+    console.log('mounted');
+    if(this.props.loggedIn) {
+      Actions.searchResults();
+    }
+  }
+
   update(field) {
     return text => {
       this.setState({
