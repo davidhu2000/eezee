@@ -1,7 +1,10 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+
 import { CardSection, Card, Input, Button, SearchInput } from '../common';
+import { receiveQuery } from '../../actions/queries_actions';
 
 class SearchBar extends React.Component {
   constructor() {
@@ -17,6 +20,7 @@ class SearchBar extends React.Component {
           <SearchInput
              label="Search"
              placeholder="Movie Name"
+             onChangeText={ query => this.props.receiveQuery(query) }
            />
       </View>
     );
@@ -36,4 +40,15 @@ const styles = {
   }
 };
 
-export default SearchBar;
+const mapStateToProps = ({ query }) => ({
+  query
+});
+
+const mapDispatchToProps = dispatch => ({
+  receiveQuery: query => dispatch(receiveQuery(query))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchBar);
