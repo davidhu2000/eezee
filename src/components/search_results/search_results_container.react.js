@@ -12,9 +12,11 @@ class SearchResults extends React.Component {
     this.state = {
       movies: []
     };
+
+    this.renderSearchResults = this.renderSearchResults.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
 
     let query = 'Batman';
 
@@ -27,10 +29,9 @@ class SearchResults extends React.Component {
       resJson => {
 
         let movies = resJson.results;
-        if(movies.length > 5) {
+        if(movies && movies.length > 5) {
           movies = movies.slice(0, 5);
         }
-
         this.setState({ movies });
       }
     ).catch(
@@ -41,16 +42,12 @@ class SearchResults extends React.Component {
 
 
   renderSearchResults() {
-    // add SearchResultItem attributes here
-    return this.state.movies.map( movie =>
-      <TouchableOpacity key={movie.title}  onPress={ () => Actions.movieDetail() }>
-        <SearchResultItem
-          key={ movie.title }
-          movieId={ movie.id }
-          title={ movie.title }
-         />
-      </TouchableOpacity>
-    );
+    // TODO add SearchResultItem attributes here
+    return this.state.movies.map( movie => {
+      return (<TouchableOpacity key={ movie.title }  onPress={ () => Actions.movieDetail({ title: movie.title }) }>
+        <SearchResultItem movieId={ movie.id } title={ movie.title } poster={ movie.poster_120x171 }/>
+      </TouchableOpacity>)
+    });
   }
 
   render() {
