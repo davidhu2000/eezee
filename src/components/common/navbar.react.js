@@ -7,12 +7,10 @@ import { CardSection, Card, Input, Button, SearchInput } from '../common';
 import { receiveQuery } from '../../actions/queries_actions';
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      query: ''
-    };
+  constructor(props) {
+    super(props);
   }
+
   render() {
     return (
       <View style={ styles.footer }>
@@ -21,6 +19,8 @@ class SearchBar extends React.Component {
              label="Search"
              placeholder="Movie Name"
              onChangeText={ query => this.props.receiveQuery(query) }
+             onSubmitEditing={ () => Actions.searchResults() }
+             returnKeyType={'go'}
            />
       </View>
     );
