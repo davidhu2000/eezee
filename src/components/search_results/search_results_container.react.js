@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, TouchableOpacity, View } from 'react-native';
+import { ScrollView, TouchableOpacity, View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import NavBar from '../common/navbar.react';
 import SearchResultItem from './search_results_item.react';
@@ -60,6 +60,12 @@ class SearchResults extends React.Component {
         <ScrollView style={ styles.scrollStyle }>
           { this.renderSearchResults() }
         </ScrollView>
+
+        <View style={ styles.footer }>
+          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
+          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+        </View>
+
       </View>
     );
     } else {
@@ -72,11 +78,19 @@ class SearchResults extends React.Component {
 
 const styles = {
   pageStyle: {
-    alignItems: 'center',
+    // alignItems: 'center',
     flex: 1
   },
   scrollStyle: {
-    marginTop: 80
+    margin: 25,
+    backgroundColor: '#F8F8F8'
+  },
+  footer: {
+    height: 50,
+    backgroundColor: '#F8F8F8',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
   }
 };
 

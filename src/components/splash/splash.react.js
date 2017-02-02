@@ -60,8 +60,6 @@ const styles = {
   },
   footer: {
     height: 50,
-    // paddingRight: 25,
-    // paddingLeft: 25,
     backgroundColor: '#F8F8F8',
     flexDirection: 'row',
     justifyContent: 'space-around',
