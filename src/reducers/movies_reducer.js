@@ -5,7 +5,7 @@ import {
 } from '../actions/movies_actions';
 
 const _defaultState = {
-  index: {},
+  index: [],
   detail: {}
 }
 
