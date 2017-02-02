@@ -1,7 +1,11 @@
 import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
+import { connect } from 'react-redux';
+
 import { Spinner } from '../common';
 import api from '../../../guidebox_api';
+
+import { receiveMovie } from '../../actions/movies_actions';
 
 class SearchResultDetail extends React.Component {
   constructor(props){
@@ -22,7 +26,7 @@ class SearchResultDetail extends React.Component {
     .then(
       res => res.json()
     ).then(
-      resJson => this.setState({ movie: resJson })
+      resJson => this.props.receiveMovie(resJson)
     ).catch(
       err => console.log(err)
     );
@@ -30,7 +34,7 @@ class SearchResultDetail extends React.Component {
   }
 
   renderStreamServices() {
-    return this.state.movie.subscription_web_sources.map( st => (
+    return this.props.movie.subscription_web_sources.map( st => (
       <View key={ st.display_name }>
         <Text>{ st.display_name }</Text>
       </View>
@@ -39,11 +43,11 @@ class SearchResultDetail extends React.Component {
 
   // TODO: add image support
   render() {
-    if(this.state.movie.title) {
+    if(this.props.movie.title) {
       return (
         <View style={styles.containerStyle}>
           <View style={ styles.headerContentStyle }>
-            <Text style={ styles.headerTextStyle }>{ this.state.movie.title }</Text>
+            <Text style={ styles.headerTextStyle }>{ this.props.movie.title }</Text>
           </View>
 
           <View style={ styles.imageContainerStyle }>
@@ -86,4 +90,17 @@ const styles = {
   }
 };
 
-export default SearchResultDetail;
+const mapStateToProps = state => {
+  return {
+    movie: state.movies.detail
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  receiveMovie: movie => dispatch(receiveMovie(movie))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchResultDetail);

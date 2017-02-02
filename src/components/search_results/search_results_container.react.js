@@ -31,7 +31,6 @@ class SearchResults extends React.Component {
       res => res.json()
     ).then(
       resJson => {
-
         let movies = resJson.results;
         if(movies && movies.length > 5) {
           movies = movies.slice(0, 5);
@@ -76,13 +75,9 @@ const styles = {
   }
 };
 
-const mapStateToProps = state => {
-  console.log(state);
-
-  return {
-    movies: state.movies.index
-  }
-}
+const mapStateToProps = state => ({
+  movies: state.movies.index
+});
 
 const mapDispatchToProps = dispatch => ({
   receiveAllMovies: movies => dispatch(receiveAllMovies(movies))
