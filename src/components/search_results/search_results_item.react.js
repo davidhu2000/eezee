@@ -9,12 +9,12 @@ class SearchResultItem extends React.Component {
 
   render() {
     return (
-      <View style={ containerStyle }>
-        <View style={ headerContentStyle }>
-          <Text style={ headerTextStyle }>{ this.props.title }</Text>
+      <View>
+        <View style={ styles.headerContentStyle }>
+          <Text style={ styles.headerTextStyle }>{ this.props.title }</Text>
         </View>
 
-        <View style={ imageContainerStyle }>
+        <View style={ styles.imageContainerStyle }>
         </View>
       </View>
     );
@@ -22,9 +22,9 @@ class SearchResultItem extends React.Component {
 }
 
 const styles = {
-  containerStyle: {
-
-  },
+  // containerStyle: {
+  //
+  // },
   headerContentStyle: {
     flexDirection: 'column',
     justifyContent: 'space-around'

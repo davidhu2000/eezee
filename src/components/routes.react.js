@@ -13,7 +13,6 @@ const Routes = () => (
       key='splash'
       component={ Splash }
       title="Welcome"
-      initial
     />
 
     <Scene
@@ -32,6 +31,7 @@ const Routes = () => (
       key='searchResults'
       component={ SearchResults }
       title='Search Results'
+      initial
     />
 
     <Scene
