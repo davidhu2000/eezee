@@ -9,6 +9,9 @@ import { receiveQuery } from '../../actions/queries_actions';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      query: ''
+    };
   }
 
   render() {
@@ -18,9 +21,8 @@ class SearchBar extends React.Component {
           <SearchInput
              label="Search"
              placeholder="Movie Name"
-             onChangeText={ query => this.props.receiveQuery(query) }
-             onSubmitEditing={ () => Actions.searchResults() }
-             returnKeyType={'go'}
+             onChangeText={ query => this.setState({ query }) }
+             onSubmitEditing={ () => this.props.receiveQuery(this.state.query) }
            />
       </View>
     );

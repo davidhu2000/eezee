@@ -21,9 +21,6 @@ class SearchResults extends React.Component {
   }
 
   queryMovies(query) {
-    // query = 'dead'
-
-    console.log(query);
     let url = `https://api-public.guidebox.com/v2/search?api_key=${api}&type=movie&field=title&precision=fuzzy&query=${query}`
 
     fetch(url)
