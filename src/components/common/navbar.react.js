@@ -12,6 +12,13 @@ class SearchBar extends React.Component {
     this.state = {
       query: ''
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    this.props.receiveQuery(this.state.query);
+    Actions.searchResults();
   }
 
   render() {
@@ -22,7 +29,7 @@ class SearchBar extends React.Component {
              label="Search"
              placeholder="Movie Name"
              onChangeText={ query => this.setState({ query }) }
-             onSubmitEditing={ () => this.props.receiveQuery(this.state.query) }
+             onSubmitEditing={ this.handleSubmit }
            />
       </View>
     );
