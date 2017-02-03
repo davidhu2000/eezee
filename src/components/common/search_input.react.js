@@ -34,9 +34,9 @@ const styles = {
     paddingLeft: 20
   },
   containerStyle: {
-    flex: 3,
+    flex: 5,
     height: 35,
-    width: 250,
+    // width: 250,
     borderWidth: 1,
     borderRadius: 2,
     borderColor: '#ddd',

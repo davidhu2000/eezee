@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import { Spinner } from '../common';
+import { Spinner, FooterButton } from '../common';
 import api from '../../../guidebox_api';
 import NavBar from '../common/navbar.react';
 
@@ -31,7 +31,6 @@ class SearchResultDetail extends React.Component {
     ).catch(
       err => console.log(err)
     );
-
   }
 
   renderStreamServices() {
@@ -68,12 +67,16 @@ class SearchResultDetail extends React.Component {
   render() {
     return (
       <View style={styles.containerStyle}>
-        <NavBar />
+        <NavBar backAction={Actions.pop} />
 
         { this.renderMovieDetail() }
         <View style={ styles.footer }>
-          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
-          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+          <FooterButton buttonAction={ () => Actions.splash() }>
+            Home
+          </FooterButton>
+          <FooterButton buttonAction={ () => Actions.userForm() }>
+            Profile
+          </FooterButton>
         </View>
       </View>
     );
@@ -130,11 +133,19 @@ const styles = {
     }
   },
   footer: {
-    height: 50,
+    height: 60,
+    padding: 10,
     backgroundColor: '#F8F8F8',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    shadowColor: 'rgba(0, 0, 0, 0.2)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
   }
 };
 
