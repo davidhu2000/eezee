@@ -5,6 +5,7 @@ import { Actions } from 'react-native-router-flux';
 import NavBar from '../common/navbar.react';
 import { CardSection, Card, Input, Button, SearchInput, FooterButton } from '../common';
 import { login } from '../../actions/session_actions';
+import { clearErrors } from '../../actions/errors_actions';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -17,10 +18,14 @@ class LoginForm extends React.Component {
   }
 
   componentWillMount() {
-    console.log('mounted');
     if(this.props.loggedIn) {
       Actions.searchResults();
     }
+  }
+
+  componentWillUnmount() {
+    console.log('unmounted');
+    this.props.clearErrors();
   }
 
   update(field) {
@@ -43,47 +48,46 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-     <View style={ styles.pageStyle }>
-      <NavBar />
+      <View style={ styles.pageStyle }>
+        <NavBar />
+        <View style={ styles.formStyle }>
+          { this.renderErrors() }
 
-      <View style={ styles.formStyle }>
-        { this.renderErrors() }
+          <Input
+             label="Email"
+             placeholder="email@gmail.com"
+             onChangeText={this.update('email')}
+             value={this.state.email}
+           />
 
-        <Input
-           label="Email"
-           placeholder="email@gmail.com"
-           onChangeText={this.update('email')}
-           value={this.state.email}
-         />
+          <Input
+             label="Password"
+             placeholder="password"
+             onChangeText={this.update('password')}
+             value={this.state.password}
+             secureTextEntry
+           />
 
-        <Input
-           label="Password"
-           placeholder="password"
-           onChangeText={this.update('password')}
-           value={this.state.password}
-           secureTextEntry
-         />
+          <Button buttonAction={ () => this.props.login(this.state) }>
+            Login
+          </Button>
 
-        <Button buttonAction={ () => this.props.login(this.state) }>
-          Login
-        </Button>
+          <View style={ styles.btmbtn }>
+            <Text>Don't have an account?</Text>
 
-        <View style={ styles.btmbtn }>
-          <Text>Don't have an account?</Text>
-
-          <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => Actions.signupForm() }>
-            Sign Up
-          </Text>
-        </View>
-       </View>
-       <View style={ styles.footer }>
-         <FooterButton buttonAction={ () => Actions.splash() }>
-           Home
-         </FooterButton>
-         <FooterButton buttonAction={ () => Actions.userForm() }>
-           Profile
-         </FooterButton>
-       </View>
+            <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => Actions.signupForm() }>
+              Sign Up
+            </Text>
+          </View>
+         </View>
+         <View style={ styles.footer }>
+           <FooterButton buttonAction={ () => Actions.splash() }>
+             Home
+           </FooterButton>
+           <FooterButton buttonAction={ () => Actions.userForm() }>
+             Profile
+           </FooterButton>
+         </View>
       </View>
     );
   }
@@ -138,7 +142,8 @@ const mapStateToProps = ({ session, errors }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  login: user => dispatch(login(user))
+  login: user => dispatch(login(user)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(

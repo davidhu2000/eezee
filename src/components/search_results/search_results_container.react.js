@@ -65,20 +65,11 @@ class SearchResults extends React.Component {
     if(this.props.movies.length > 0) {
       return (
         <View style={ styles.pageStyle }>
-          <NavBar />
 
           <View style={ styles.scrollStyle }>
             { this.renderSearchResults() }
           </View>
 
-          <View style={ styles.footer }>
-            <FooterButton buttonAction={ () => Actions.splash() }>
-              Home
-            </FooterButton>
-            <FooterButton buttonAction={ () => Actions.userForm() }>
-              Profile
-            </FooterButton>
-          </View>
         </View>
       );
     } else {
@@ -96,8 +87,12 @@ class SearchResults extends React.Component {
         { this.renderMovieList() }
 
         <View style={ styles.footer }>
-          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
-          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+          <FooterButton buttonAction={ () => Actions.splash() }>
+            Home
+          </FooterButton>
+          <FooterButton buttonAction={ () => Actions.userForm() }>
+            Profile
+          </FooterButton>
         </View>
 
       </View>

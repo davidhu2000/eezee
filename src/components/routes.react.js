@@ -1,6 +1,6 @@
 import React from 'react';
 import { Scene, Router, Action } from 'react-native-router-flux';
-import { Header, Button } from './common';
+import { Header, Button, Navbar } from './common';
 import Splash from './splash/splash.react';
 import LoginForm from './user_form/login_form.react';
 import SignupForm from './user_form/signup_form.react';
@@ -15,7 +15,7 @@ const Routes = () => (
       component={ Splash }
       title="Welcome"
       hideNavBar={true}
-
+      initial
     />
 
     <Scene
@@ -44,7 +44,6 @@ const Routes = () => (
       component={ SearchResults }
       title='Search Results'
       hideNavBar={true}
-      initial
     />
 
     <Scene
@@ -53,7 +52,6 @@ const Routes = () => (
       title='Movie'
       hideNavBar={true}
     />
-
   </Router>
 );
 

@@ -42,37 +42,41 @@ class SearchResultDetail extends React.Component {
     ));
   }
 
-  // TODO: add image support
-  render() {
+  renderMovieDetail() {
     if(this.props.movie.title) {
       return (
-        <View style={styles.containerStyle}>
-          <NavBar />
+        <View style={ styles.resultdetails }>
 
-          <View style={ styles.resultdetails }>
-
-            <View style={ styles.headerContentStyle }>
-              <Text style={ styles.headerTextStyle }>{ this.props.movie.title }</Text>
-            </View>
-
-            <View style={ styles.services }>
-              { this.renderStreamServices() }
-            </View>
-
+          <View style={ styles.headerContentStyle }>
+            <Text style={ styles.headerTextStyle }>{ this.props.movie.title }</Text>
           </View>
 
-          <View style={ styles.footer }>
-            <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
-            <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+          <View style={ styles.services }>
+            { this.renderStreamServices() }
           </View>
+
         </View>
-      );
-      } else {
+      )
+    } else {
       return (
         <Spinner />
-      );
+      )
     }
+  }
 
+  // TODO: add image support
+  render() {
+    return (
+      <View style={styles.containerStyle}>
+        <NavBar />
+
+        { this.renderMovieDetail() }
+        <View style={ styles.footer }>
+          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
+          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+        </View>
+      </View>
+    );
   }
 }
 

@@ -44,7 +44,7 @@ class UserForm extends React.Component {
     // console.log(this.state);
     return (
      <View style={ styles.pageStyle }>
-      <NavBar />
+       <NavBar />
       <View style={ styles.formStyle }>
         { this.renderErrors() }
 
