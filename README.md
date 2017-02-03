@@ -1,7 +1,7 @@
 
 <img src="./assets/images/ez_icon.png" alt="logo" style="width: 400px;"/>
 
-[eZ](https://itunes.apple.com/us/genre/ios/id36?mt=8) is an iOS application that provides users with a quick and easy way to search for movies and tv shows across 300+ streaming services. It utilizes React Native with a lightweight FireBase back-end, and a Flux architecture with a Redux state container to control the application state on the front-end.
+[eZ](https://itunes.apple.com/us/genre/ios/id36?mt=8) is an iOS application that provides users with a quick and easy way to search for movies and tv shows across 300+ streaming services. It utilizes a lightweight FireBase back-end, and React Native with a Flux/redux architecture to control the application state on the front-end.
 
 eZ is a collaborative project by [Alex Sherman](https://github.com/asherman-ca), [David Hu](https://github.com/davidhu2000), and [Tom Ogasawara](https://github.com/tom-ogasawara).
 
@@ -19,11 +19,8 @@ eZ is a collaborative project by [Alex Sherman](https://github.com/asherman-ca),
 ## Implementation
 
 ```JavaScript
-export const receiveAllMovies = movies => ({
-  type: RECEIVE_ALL_MOVIES,
-  movies
-});
 ```
+The application accepts some input from the user, e.g. "Game of Thrones" or "Batman," then interpolates the query into a call to the [GuideBox API](https://api.guidebox.com/docs), which returns a list of related movies and/or tv shows. The app then displays links to the most relevant search results, allowing the users to select which movie and/or tv shows they desire. 
 
 ## Technology
 
