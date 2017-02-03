@@ -17,7 +17,7 @@ export const login = ({ email, password }) => {
         user => {
           dispatch(clearErrors());
           dispatch(receiveUser(user));
-          Actions.searchResults();
+          Actions.profile();
         }
       ).catch(
         err => dispatch(receiveErrors(
@@ -34,7 +34,7 @@ export const signup = ({ email, password }) => {
         user => {
           dispatch(clearErrors());
           dispatch(receiveUser(user));
-          Actions.searchResults();
+          Actions.profile();
         }
       ).catch(
         err => dispatch(receiveErrors(
