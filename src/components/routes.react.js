@@ -14,7 +14,7 @@ const Routes = () => (
       component={ Splash }
       title="Welcome"
       hideNavBar={true}
-      initial
+
     />
 
     <Scene
@@ -36,7 +36,7 @@ const Routes = () => (
       component={ SearchResults }
       title='Search Results'
       hideNavBar={true}
-
+      initial
     />
 
     <Scene
