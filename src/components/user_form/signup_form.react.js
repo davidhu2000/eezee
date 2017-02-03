@@ -3,7 +3,7 @@ import { Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import NavBar from '../navbar/navbar.react';
-import { CardSection, Card, Input, Button, SearchInput, FooterButton } from '../common';
+import { CardSection, Card, Input, Button, SearchInput, Footer, SessionForm } from '../common';
 import { signup } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/errors_actions';
 
@@ -44,50 +44,19 @@ class SignupForm extends React.Component {
   render() {
     // console.log(this.state);
     return (
-     <View style={ styles.pageStyle }>
-       <NavBar />
-      <View style={ styles.formStyle }>
-        { this.renderErrors() }
-
-        <Input
-           label="Email"
-           placeholder="email@gmail.com"
-           onChangeText={this.update('email')}
-           value={this.state.email}
-         />
-
-        <Input
-           label="Password"
-           placeholder="password"
-           onChangeText={this.update('password')}
-           value={this.state.password}
-           secureTextEntry
-         />
-
-        <Button buttonAction={ () => this.props.signup(this.state) }>
-          Sign Up
-        </Button>
-
-      <View style={ styles.btmbtn }>
-        <Text>Already have an account?</Text>
-
-        <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => {
-            this.props.clearErrors();
-            Actions.loginForm();
-          } }>
-          Login
-        </Text>
-       </View>
-      </View>
-
-      <View style={ styles.footer }>
-        <FooterButton buttonAction={ () => Actions.splash() }>
-          Home
-        </FooterButton>
-        <FooterButton buttonAction={ () => Actions.signupForm() }>
-          Profile
-        </FooterButton>
-      </View>
+      <View style={ styles.pageStyle }>
+        <NavBar />
+          <SessionForm
+            errors={this.props.errors}
+            action={this.props.signup}
+            clearErrors={this.props.clearErrors}
+            linkAction={ Actions.loginForm }
+            update={this.update}
+            email={this.state.email}
+            password={this.state.password}
+            buttonValue={'Signup'}
+          />
+        <Footer />
       </View>
     );
   }
