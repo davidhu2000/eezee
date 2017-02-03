@@ -5,6 +5,7 @@ import { Actions } from 'react-native-router-flux';
 import NavBar from '../common/navbar.react';
 import { CardSection, Card, Input, Button, SearchInput, FooterButton } from '../common';
 import { signup } from '../../actions/session_actions';
+import { clearErrors } from '../../actions/errors_actions';
 
 class UserForm extends React.Component {
   constructor(props) {
@@ -70,7 +71,10 @@ class UserForm extends React.Component {
       <View style={ styles.btmbtn }>
         <Text>Already have an account?</Text>
 
-        <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => Actions.userForm() }>
+        <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => {
+            this.props.clearErrors();
+            Actions.userForm();
+          } }>
           Login
         </Text>
        </View>
@@ -138,7 +142,8 @@ const mapStateToProps = ({ session, errors }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  signup: user => dispatch(signup(user))
+  signup: user => dispatch(signup(user)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(

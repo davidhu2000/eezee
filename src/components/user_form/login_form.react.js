@@ -75,7 +75,10 @@ class LoginForm extends React.Component {
           <View style={ styles.btmbtn }>
             <Text>Don't have an account?</Text>
 
-            <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => Actions.signupForm() }>
+            <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => {
+                this.props.clearErrors();
+                Actions.signupForm();
+            } }>
               Sign Up
             </Text>
           </View>
