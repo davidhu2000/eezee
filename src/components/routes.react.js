@@ -4,6 +4,7 @@ import { Header, Button } from './common';
 import Splash from './splash/splash.react';
 import LoginForm from './user_form/login_form.react';
 import SignupForm from './user_form/signup_form.react';
+import Profile from './profile/profile.react';
 import SearchResults from './search_results/search_results_container.react';
 import SearchResultDetail from './search_results/search_result_detail.react';
 
@@ -28,6 +29,13 @@ const Routes = () => (
       key='signupForm'
       component={ SignupForm }
       title='Sign Up'
+      hideNavBar={true}
+    />
+
+    <Scene
+      key='profile'
+      component={ Profile }
+      title='Profile'
       hideNavBar={true}
     />
 
