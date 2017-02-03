@@ -3,7 +3,7 @@ import { Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import NavBar from '../common/navbar.react';
-import { CardSection, Card, Input, Button, SearchInput } from '../common';
+import { CardSection, Card, Input, Button, SearchInput, FooterButton } from '../common';
 import { login } from '../../actions/session_actions';
 
 class LoginForm extends React.Component {
@@ -77,8 +77,12 @@ class LoginForm extends React.Component {
         </View>
        </View>
        <View style={ styles.footer }>
-         <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
-         <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+         <FooterButton buttonAction={ () => Actions.splash() }>
+           Home
+         </FooterButton>
+         <FooterButton buttonAction={ () => Actions.userForm() }>
+           Profile
+         </FooterButton>
        </View>
       </View>
     );
@@ -111,11 +115,19 @@ const styles = {
     justifyContent: 'space-between'
   },
   footer: {
-    height: 50,
+    height: 60,
+    padding: 10,
     backgroundColor: '#F8F8F8',
+    flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    flexDirection: 'row'
+    shadowColor: 'rgba(0, 0, 0, 0.2)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
   }
 };
 

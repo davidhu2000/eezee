@@ -5,7 +5,7 @@ import { Actions } from 'react-native-router-flux';
 import NavBar from '../common/navbar.react';
 import SearchResultItem from './search_results_item.react';
 import api from '../../../guidebox_api';
-import { Spinner } from '../common';
+import { Spinner, FooterButton } from '../common';
 
 import { receiveAllMovies } from '../../actions/movies_actions';
 
@@ -64,8 +64,21 @@ class SearchResults extends React.Component {
   renderMovieList() {
     if(this.props.movies.length > 0) {
       return (
-        <View style={ styles.scrollStyle }>
-          { this.renderSearchResults() }
+        <View style={ styles.pageStyle }>
+          <NavBar />
+
+          <View style={ styles.scrollStyle }>
+            { this.renderSearchResults() }
+          </View>
+
+          <View style={ styles.footer }>
+            <FooterButton buttonAction={ () => Actions.splash() }>
+              Home
+            </FooterButton>
+            <FooterButton buttonAction={ () => Actions.userForm() }>
+              Profile
+            </FooterButton>
+          </View>
         </View>
       );
     } else {
@@ -110,11 +123,19 @@ const styles = {
     }
   },
   footer: {
-    height: 50,
+    height: 60,
+    padding: 10,
     backgroundColor: '#F8F8F8',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    shadowColor: 'rgba(0, 0, 0, 0.2)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
   }
 };
 
@@ -125,7 +146,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   receiveAllMovies: movies => dispatch(receiveAllMovies(movies))
-})
+});
 
 export default connect(
   mapStateToProps,

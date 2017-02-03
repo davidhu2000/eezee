@@ -1,14 +1,11 @@
 import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
-import { SearchInput, Button } from '../common';
+import { SearchInput, Button, FooterButton } from '../common';
 import { Actions } from 'react-native-router-flux';
 import NavBar from '../common/navbar.react';
 // import { Card, CardSection, Button } from '../common/index';
 
 const Splash = () => {
-  const {
-    containerStyle
-  } = styles;
 
   return (
     <View style={ styles.pageStyle }>
@@ -24,8 +21,12 @@ const Splash = () => {
         </Button>
      </View>
      <View style={ styles.footer }>
-       <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
-       <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+       <FooterButton buttonAction={ () => Actions.splash() }>
+         Home
+       </FooterButton>
+       <FooterButton buttonAction={ () => Actions.userForm() }>
+         Profile
+       </FooterButton>
      </View>
     </View>
   );
@@ -58,11 +59,19 @@ const styles = {
     margin: 20
   },
   footer: {
-    height: 50,
+    height: 60,
+    padding: 10,
     backgroundColor: '#F8F8F8',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    shadowColor: 'rgba(0, 0, 0, 0.2)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
   }
 };
 

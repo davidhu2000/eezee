@@ -34,7 +34,7 @@ const styles = {
     paddingLeft: 20
   },
   containerStyle: {
-    flex: 2,
+    flex: 3,
     height: 35,
     width: 250,
     borderWidth: 1,

@@ -23,8 +23,7 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <View style={ styles.footer }>
-        <Text style={{flex: 1, fontSize: 20, color: '#3B5998', paddingLeft: 20}} onPress={ () => Actions.splash() }>Home</Text>
+      <View style={ styles.header }>
           <SearchInput
              label="Search"
              placeholder="Movie Name"
@@ -37,13 +36,19 @@ class SearchBar extends React.Component {
 }
 
 const styles = {
-  footer: {
-    height: 70,
-    paddingTop: 20,
+  navtext: {
+    flex: 1,
+    fontSize: 20,
+    color: '#3B5998'
+  },
+  header: {
+    height: 80,
+    paddingTop: 40,
+    paddingBottom: 25,
     paddingRight: 25,
     paddingLeft: 25,
     backgroundColor: '#F8F8F8',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row'
   }
