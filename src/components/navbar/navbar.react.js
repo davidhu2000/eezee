@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { CardSection, Card, Input, Button, SearchInput, BackButton } from '../common';
 import { receiveQuery } from '../../actions/queries_actions';
 
-class SearchBar extends React.Component {
+class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -85,4 +85,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SearchBar);
+)(NavBar);
