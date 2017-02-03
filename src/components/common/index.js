@@ -6,3 +6,4 @@ export * from './input.react';
 export * from './spinner.react';
 export * from './search_input.react';
 export * from './footerbutton.react';
+export * from './footer.react';

@@ -3,7 +3,7 @@ import { Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import NavBar from '../common/navbar.react';
-import { CardSection, Card, Input, Button, SearchInput, FooterButton } from '../common';
+import { CardSection, Card, Input, Button, SearchInput, Footer } from '../common';
 import { login } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/errors_actions';
 
@@ -78,14 +78,7 @@ class LoginForm extends React.Component {
             </Text>
           </View>
          </View>
-         <View style={ styles.footer }>
-           <FooterButton buttonAction={ () => Actions.splash() }>
-             Home
-           </FooterButton>
-           <FooterButton buttonAction={ () => Actions.signupForm() }>
-             Profile
-           </FooterButton>
-         </View>
+         <Footer />
       </View>
     );
   }

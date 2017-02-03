@@ -73,7 +73,7 @@ class SignupForm extends React.Component {
 
         <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => {
             this.props.clearErrors();
-            Actions.signupForm();
+            Actions.loginForm();
           } }>
           Login
         </Text>
