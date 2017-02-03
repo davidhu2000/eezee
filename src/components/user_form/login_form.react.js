@@ -2,8 +2,8 @@ import React from 'react';
 import { Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import NavBar from '../common/navbar.react';
-import { CardSection, Card, Input, Button, SearchInput, Footer } from '../common';
+import NavBar from '../navbar/navbar.react';
+import { Input, Button, Footer } from '../common';
 import { login } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/errors_actions';
 
@@ -78,6 +78,7 @@ class LoginForm extends React.Component {
             </Text>
           </View>
          </View>
+
          <Footer />
       </View>
     );
@@ -108,21 +109,6 @@ const styles = {
   pageStyle: {
     flex: 1,
     justifyContent: 'space-between'
-  },
-  footer: {
-    height: 60,
-    padding: 10,
-    backgroundColor: '#F8F8F8',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    shadowColor: 'rgba(0, 0, 0, 0.2)',
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 1,
-      width: 2,
-    }
   }
 };
 

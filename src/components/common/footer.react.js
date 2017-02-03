@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import { FooterButton } from './footerbutton.react';
 
@@ -9,7 +10,7 @@ const Footer = () => {
       <FooterButton buttonAction={ () => Actions.splash() }>
         Home
       </FooterButton>
-      <FooterButton buttonAction={ () => Actions.signupForm() }>
+      <FooterButton buttonAction={ () => Actions.profile() }>
         Profile
       </FooterButton>
     </View>

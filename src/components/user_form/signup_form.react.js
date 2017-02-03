@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import NavBar from '../common/navbar.react';
+import NavBar from '../navbar/navbar.react';
 import { CardSection, Card, Input, Button, SearchInput, FooterButton } from '../common';
 import { signup } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/errors_actions';

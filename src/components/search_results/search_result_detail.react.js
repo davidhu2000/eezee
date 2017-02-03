@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Spinner } from '../common';
 import api from '../../../guidebox_api';
-import NavBar from '../common/navbar.react';
+import NavBar from '../navbar/navbar.react';
 
 import { receiveMovie } from '../../actions/movies_actions';
+import { Footer } from '../common';
 
 class SearchResultDetail extends React.Component {
   constructor(props){
@@ -71,10 +72,7 @@ class SearchResultDetail extends React.Component {
         <NavBar />
 
         { this.renderMovieDetail() }
-        <View style={ styles.footer }>
-          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
-          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.signupForm() }>Profile</Text>
-        </View>
+        <Footer />
       </View>
     );
   }
@@ -128,13 +126,6 @@ const styles = {
       height: 1,
       width: 2,
     }
-  },
-  footer: {
-    height: 50,
-    backgroundColor: '#F8F8F8',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center'
   }
 };
 
