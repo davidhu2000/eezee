@@ -19,7 +19,7 @@ const Routes = () => (
     />
 
     <Scene
-      key='userForm'
+      key='loginForm'
       component={ LoginForm }
       title='Login'
       hideNavBar={true}
