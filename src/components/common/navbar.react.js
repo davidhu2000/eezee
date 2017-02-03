@@ -1,21 +1,34 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
+
 import { CardSection, Card, Input, Button, SearchInput } from '../common';
+import { receiveQuery } from '../../actions/queries_actions';
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       query: ''
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit(e) {
+    this.props.receiveQuery(this.state.query);
+    Actions.searchResults();
+  }
+
   render() {
     return (
       <View style={ styles.header }>
           <SearchInput
              label="Search"
              placeholder="Movie Name"
+             onChangeText={ query => this.setState({ query }) }
+             onSubmitEditing={ this.handleSubmit }
            />
       </View>
     );
@@ -41,7 +54,15 @@ const styles = {
   }
 };
 
-export default SearchBar;
+const mapStateToProps = ({ query }) => ({
+  query
+});
 
-// removed from navbar
-// <Text style={ styles.navtext } onPress={ () => Actions.splash() }>Home</Text>
+const mapDispatchToProps = dispatch => ({
+  receiveQuery: query => dispatch(receiveQuery(query))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchBar);
