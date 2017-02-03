@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, View, Text, Image } from 'react-native';
+import { TextInput, View, Text, Image, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { CardSection, Card, Input, Button, SearchInput, BackButton } from '../common';
@@ -18,12 +18,7 @@ class SearchBar extends React.Component {
   renderBackButton() {
     if (this.props.backAction) {
       return (
-        <View style={styles.iconContainer}>
-          <Image
-            style={styles.iconStyle}
-            source={require('./backbutton.png')}
-          />
-        </View>
+        <BackButton buttonAction={this.props.backAction} />
       );
     }
   }

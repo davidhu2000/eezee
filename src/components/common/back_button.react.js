@@ -3,10 +3,10 @@ import { Text, TouchableOpacity, Image } from 'react-native';
 
 const BackButton = ({ buttonAction }) => (
   <TouchableOpacity onPress={buttonAction} style={styles.iconContainer}>
-    <Image>
+    <Image
       style={styles.iconStyle}
       source={require('./backbutton.png')}
-    </Image>
+      />
   </TouchableOpacity>
 );
 
