@@ -18,9 +18,17 @@ eZ is a collaborative project by [Alex Sherman](https://github.com/asherman-ca),
 
 ## Implementation
 
+The application accepts some input from the user, e.g. "Game of Thrones" or "Batman," then interpolates the query into a call to the [GuideBox API](https://api.guidebox.com/docs), which returns a list of related movies and/or tv shows. The app then filters the results and displays links to the five most relevant.
+
 ```JavaScript
+
 ```
-The application accepts some input from the user, e.g. "Game of Thrones" or "Batman," then interpolates the query into a call to the [GuideBox API](https://api.guidebox.com/docs), which returns a list of related movies and/or tv shows. The app then displays links to the most relevant search results, allowing the users to select which movie and/or tv shows they desire. 
+
+When a user selects one of the displayed options, the application redirects to a page displaying which (if any) streaming services currently host the selected movie/tv show. Each available streaming option displays an icon with link directly to the content.
+
+```JavaScript
+
+```
 
 ## Technology
 
