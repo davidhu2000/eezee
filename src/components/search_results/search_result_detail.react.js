@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Linking } from 'react-native';
+import { Text, View, Image, Linking, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Spinner, FooterButton } from '../common';
@@ -65,16 +65,15 @@ class SearchResultDetail extends React.Component {
     if(this.props.movie.title) {
       return (
         <View style={ styles.containerStyle }>
+          <View style={ styles.contentStyle }>
+            <View style={ styles.headerContentStyle }>
+              <Text style={ styles.headerTextStyle }>{ this.props.movie.title }</Text>
+            </View>
 
-        <View style={ styles.scrollStyle }>
-          <View style={ styles.headerContentStyle }>
-            <Text style={ styles.headerTextStyle }>{ this.props.movie.title }</Text>
+            <ScrollView style={ styles.services }>
+              { this.renderStreamServices() }
+            </ScrollView>
           </View>
-
-          <View style={ styles.services }>
-            { this.renderStreamServices() }
-          </View>
-        </View>
         </View>
       );
     } else {
@@ -114,7 +113,7 @@ const styles = {
       width: 2,
     }
   },
-  scrollStyle: {
+  contentStyle: {
     margin: 25,
     padding: 10,
     backgroundColor: '#F8F8F8',
