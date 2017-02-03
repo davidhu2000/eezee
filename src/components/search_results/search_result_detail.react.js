@@ -52,8 +52,8 @@ class SearchResultDetail extends React.Component {
   renderStreamServices() {
     return this.props.movie.subscription_web_sources.map( st => (
         <View style={ styles.service } key={ st.display_name }>
-          <View style={ styles.icons }>
-            <Image source={this.renderIcon(st)} />
+          <View>
+            <Image style={ styles.icons } source={this.renderIcon(st)} />
           </View>
           <View>
             <Text>{ st.display_name }</Text>
@@ -160,7 +160,8 @@ const styles = {
     flex: 1
   },
   icons: {
-
+    style: 'stretch',
+    hight: 64
   }
 };
 
