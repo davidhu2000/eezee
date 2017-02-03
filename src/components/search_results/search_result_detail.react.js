@@ -36,28 +36,30 @@ class SearchResultDetail extends React.Component {
 
   renderIcon(st) {
     let iconName = 'amazon';
-    let src = st.source;
-    if (src.includes('amazon')) {
-      iconName = 'amazon';
-    } else if (src.includes('netflix')) {
-      iconName = 'netflix';
-    } else if (src.includes('hulu')) {
-      iconName = 'hulu';
-    } else if (src.includes('hbo')) {
-      iconName = 'hbo';
-    }
-    let url = `../../../assets/icons/${iconName}.png`;
-    return <Image source={require(url)} />;
+    // let src = st.source;
+    // if (src.includes('amazon')) {
+    //   iconName = 'amazon';
+    // } else if (src.includes('netflix')) {
+    //   iconName = 'netflix';
+    // } else if (src.includes('hulu')) {
+    //   iconName = 'hulu';
+    // } else if (src.includes('hbo')) {
+    //   iconName = 'hbo';
+    // }
+    let url = 'hulu.png';
+    return (url);
   }
-  
-  renderStreamServices() {
 
+  renderStreamServices() {
+    let url = require(`../../../assets/icons/netflix.png`);
     return this.props.movie.subscription_web_sources.map( st => (
         <View style={ styles.service } key={ st.display_name }>
           <View style={ styles.icons }>
-            { this.renderIcon(st) }
+            <Image source={{ uri: 'netflix.png' }} />
           </View>
-          <Text>{ st.display_name }</Text>
+          <View>
+            <Text>{ st.display_name }</Text>
+          </View>
         </View>
     ));
   }
@@ -150,7 +152,7 @@ const styles = {
     }
   },
   icons: {
-    //TODO add icon styling
+
   },
   footer: {
     height: 50,
