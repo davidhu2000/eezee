@@ -159,25 +159,8 @@ const styles = {
     },
     flex: 1
   },
-<<<<<<< HEAD
-  footer: {
-    height: 60,
-    padding: 10,
-    backgroundColor: '#F8F8F8',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    shadowColor: 'rgba(0, 0, 0, 0.2)',
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 1,
-      width: 2,
-    }
-=======
   icons: {
 
->>>>>>> master
   }
 };
 
