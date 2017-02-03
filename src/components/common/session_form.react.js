@@ -19,9 +19,11 @@ class SessionForm extends React.Component {
   renderErrors() {
     if(this.props.errors[0]) {
       return (
-        <Text>
-          { this.props.errors[0] }
-        </Text>
+        <View style={ styles.errorStyle }>
+          <Text>
+            { this.props.errors[0] }
+          </Text>
+        </View>
       );
     }
   }
@@ -89,6 +91,10 @@ const styles = {
   pageStyle: {
     flex: 1,
     justifyContent: 'space-between'
+  },
+  errorStyle: {
+    position: 'absolute',
+    top: -50
   }
 };
 
