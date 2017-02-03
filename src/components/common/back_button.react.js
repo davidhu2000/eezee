@@ -14,8 +14,6 @@ const styles = {
   iconStyle: {
     height: 20,
     width: 30
-    // flex: 1
-    // padding: 5
   },
   iconContainer: {
     flex: 1,

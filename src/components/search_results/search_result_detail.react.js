@@ -44,8 +44,9 @@ class SearchResultDetail extends React.Component {
   renderMovieDetail() {
     if(this.props.movie.title) {
       return (
-        <View style={ styles.resultdetails }>
+        <View style={ styles.containerStyle }>
 
+        <View style={ styles.scrollStyle }>
           <View style={ styles.headerContentStyle }>
             <Text style={ styles.headerTextStyle }>{ this.props.movie.title }</Text>
           </View>
@@ -53,7 +54,7 @@ class SearchResultDetail extends React.Component {
           <View style={ styles.services }>
             { this.renderStreamServices() }
           </View>
-
+        </View>
         </View>
       )
     } else {
@@ -100,6 +101,18 @@ const styles = {
       width: 2,
     }
   },
+  scrollStyle: {
+    margin: 25,
+    padding: 10,
+    backgroundColor: '#F8F8F8',
+    shadowColor: 'rgba(0, 0, 0, 0.12)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
+  },
   services: {
     padding: 10,
     margin: 10,
@@ -130,7 +143,8 @@ const styles = {
     shadowOffset: {
       height: 1,
       width: 2,
-    }
+    },
+    flex: 1
   },
   footer: {
     height: 60,
