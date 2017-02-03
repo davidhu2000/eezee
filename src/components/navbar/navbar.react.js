@@ -1,9 +1,8 @@
 import React from 'react';
-import { TextInput, View, Text } from 'react-native';
+import { TextInput, View, Text, Image, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-
-import { CardSection, Card, Input, Button, SearchInput } from '../common';
+import { CardSection, Card, Input, Button, SearchInput, BackButton } from '../common';
 import { receiveQuery } from '../../actions/queries_actions';
 
 class NavBar extends React.Component {
@@ -16,6 +15,14 @@ class NavBar extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  renderBackButton() {
+    if (this.props.backAction) {
+      return (
+        <BackButton buttonAction={this.props.backAction} />
+      );
+    }
+  }
+
   handleSubmit(e) {
     this.props.receiveQuery(this.state.query);
     Actions.searchResults();
@@ -24,6 +31,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <View style={ styles.header }>
+          {this.renderBackButton()}
           <SearchInput
              label="Search"
              placeholder="Movie Name"
@@ -36,11 +44,11 @@ class NavBar extends React.Component {
 }
 
 const styles = {
-  navtext: {
-    flex: 1,
-    fontSize: 20,
-    color: '#3B5998'
-  },
+  // navtext: {
+  //   flex: 1,
+  //   fontSize: 20,
+  //   color: '#3B5998'
+  // },
   header: {
     height: 80,
     paddingTop: 40,
@@ -48,9 +56,21 @@ const styles = {
     paddingRight: 25,
     paddingLeft: 25,
     backgroundColor: '#F8F8F8',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row'
+  },
+  iconStyle: {
+    height: 20,
+    width: 30
+    // flex: 1
+    // padding: 5
+  },
+  iconContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 20
   }
 };
 

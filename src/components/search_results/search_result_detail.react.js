@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
-import { Spinner } from '../common';
+import { Spinner, FooterButton } from '../common';
 import api from '../../../guidebox_api';
 import NavBar from '../navbar/navbar.react';
 
@@ -32,7 +32,6 @@ class SearchResultDetail extends React.Component {
     ).catch(
       err => console.log(err)
     );
-
   }
 
   renderIcon(st) {
@@ -65,8 +64,9 @@ class SearchResultDetail extends React.Component {
   renderMovieDetail() {
     if(this.props.movie.title) {
       return (
-        <View style={ styles.resultdetails }>
+        <View style={ styles.containerStyle }>
 
+        <View style={ styles.scrollStyle }>
           <View style={ styles.headerContentStyle }>
             <Text style={ styles.headerTextStyle }>{ this.props.movie.title }</Text>
           </View>
@@ -74,7 +74,7 @@ class SearchResultDetail extends React.Component {
           <View style={ styles.services }>
             { this.renderStreamServices() }
           </View>
-
+        </View>
         </View>
       );
     } else {
@@ -88,7 +88,7 @@ class SearchResultDetail extends React.Component {
   render() {
     return (
       <View style={styles.containerStyle}>
-        <NavBar />
+        <NavBar backAction={Actions.pop} />
 
         { this.renderMovieDetail() }
         <Footer />
@@ -106,6 +106,18 @@ const styles = {
     padding: 10,
     margin: 10,
     backgroundColor: '#fff',
+    shadowColor: 'rgba(0, 0, 0, 0.12)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
+  },
+  scrollStyle: {
+    margin: 25,
+    padding: 10,
+    backgroundColor: '#F8F8F8',
     shadowColor: 'rgba(0, 0, 0, 0.12)',
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -144,10 +156,28 @@ const styles = {
     shadowOffset: {
       height: 1,
       width: 2,
-    }
+    },
+    flex: 1
   },
+<<<<<<< HEAD
+  footer: {
+    height: 60,
+    padding: 10,
+    backgroundColor: '#F8F8F8',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    shadowColor: 'rgba(0, 0, 0, 0.2)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
+=======
   icons: {
 
+>>>>>>> master
   }
 };
 
