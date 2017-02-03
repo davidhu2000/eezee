@@ -34,11 +34,20 @@ class SearchResultDetail extends React.Component {
 
   }
 
+  // if (st.includes('amazon')) {
+  // } else if (st.includes('netflix')) {
+  //
+  // } else if (st.includes('hulu')) {
+  //
+  // } else if (st.includes('hbo')) {
+  //
+  // }
   renderStreamServices() {
     return this.props.movie.subscription_web_sources.map( st => (
-      <View style={ styles.service } key={ st.display_name }>
-        <Text>{ st.display_name }</Text>
-      </View>
+        <View style={ styles.service } key={ st.display_name }>
+          <Image source={require('../../../assets/icons/amazon.png')} />
+          <Text>{ st.display_name }</Text>
+        </View>
     ));
   }
 
