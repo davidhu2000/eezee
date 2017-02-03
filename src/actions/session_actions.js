@@ -21,7 +21,7 @@ export const login = ({ email, password }) => {
         }
       ).catch(
         err => dispatch(receiveErrors(
-          ['Invalid credentials']
+          [err.message]
         ))
       )
   }
@@ -38,7 +38,7 @@ export const signup = ({ email, password }) => {
         }
       ).catch(
         err => dispatch(receiveErrors(
-          ['Invalid email and/or password']
+          [err.message]
         ))
       )
   }

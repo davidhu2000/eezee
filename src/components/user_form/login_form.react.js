@@ -17,6 +17,8 @@ class LoginForm extends React.Component {
       email: '',
       password: ''
     };
+
+    this.update = this.update.bind(this);
   }
 
   componentWillMount() {
@@ -34,6 +36,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <View style={ styles.pageStyle }>
         <NavBar />
@@ -43,7 +46,8 @@ class LoginForm extends React.Component {
           action={this.props.login}
           clearErrors={this.props.clearErrors}
           linkAction={ Actions.signupForm }
-          update={this.update}
+          updateEmail={this.update('email')}
+          updatePassword={this.update('password')}
           email={this.state.email}
           password={this.state.password}
           buttonValue={'Login'}

@@ -34,19 +34,19 @@ class SessionForm extends React.Component {
         <Input
            label="Email"
            placeholder="email@gmail.com"
-           onChangeText={this.props.update('email')}
+           onChangeText={this.props.updateEmail}
            value={this.props.email}
          />
 
         <Input
            label="Password"
            placeholder="password"
-           onChangeText={this.props.update('password')}
+           onChangeText={this.props.updatePassword}
            value={this.props.password}
            secureTextEntry
-         />
+        />
 
-        <Button buttonAction={ () => this.props.action(this.state) }>
+      <Button buttonAction={ () => this.props.action({email: this.props.email, password: this.props.password}) }>
           { this.props.buttonValue }
         </Button>
 
@@ -56,7 +56,7 @@ class SessionForm extends React.Component {
           <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => {
               this.props.clearErrors();
               this.props.linkAction();
-          } }>
+          }}>
             { this.props.buttonValue == 'Login' ? 'Signup' : 'Login' }
           </Text>
         </View>
