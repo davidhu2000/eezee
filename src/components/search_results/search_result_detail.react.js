@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Linking, ScrollView } from 'react-native';
+import { Text, View, Image, Linking, ScrollView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Spinner, FooterButton } from '../common';
@@ -52,12 +52,11 @@ class SearchResultDetail extends React.Component {
   renderStreamServices() {
     return this.props.movie.subscription_web_sources.map( st => (
         <View style={ styles.service } key={ st.display_name }>
-          <View style={ styles.icons }>
-            <Image source={this.renderIcon(st)} />
-          </View>
-          <View>
-            <Text>{ st.display_name }</Text>
-          </View>
+          <TouchableOpacity onPress={ () => Linking.openURL(st.link) }>
+            <View style={ styles.icons }>
+              <Image source={this.renderIcon(st)} />
+            </View>
+          </TouchableOpacity>
         </View>
     ));
   }
