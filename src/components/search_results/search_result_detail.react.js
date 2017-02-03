@@ -14,7 +14,7 @@ class SearchResultDetail extends React.Component {
 
     this.state = {
       movie: {}
-    }
+    };
 
     this.renderStreamServices = this.renderStreamServices.bind(this);
   }
@@ -34,18 +34,29 @@ class SearchResultDetail extends React.Component {
 
   }
 
-  // if (st.includes('amazon')) {
-  // } else if (st.includes('netflix')) {
-  //
-  // } else if (st.includes('hulu')) {
-  //
-  // } else if (st.includes('hbo')) {
-  //
-  // }
+  renderIcon(st) {
+    let iconName = 'amazon';
+    let src = st.source;
+    if (src.includes('amazon')) {
+      iconName = 'amazon';
+    } else if (src.includes('netflix')) {
+      iconName = 'netflix';
+    } else if (src.includes('hulu')) {
+      iconName = 'hulu';
+    } else if (src.includes('hbo')) {
+      iconName = 'hbo';
+    }
+    let url = `../../../assets/icons/${iconName}.png`;
+    return <Image source={require(url)} />;
+  }
+  
   renderStreamServices() {
+
     return this.props.movie.subscription_web_sources.map( st => (
         <View style={ styles.service } key={ st.display_name }>
-          <Image source={require('../../../assets/icons/amazon.png')} />
+          <View style={ styles.icons }>
+            { this.renderIcon(st) }
+          </View>
           <Text>{ st.display_name }</Text>
         </View>
     ));
@@ -65,11 +76,11 @@ class SearchResultDetail extends React.Component {
           </View>
 
         </View>
-      )
+      );
     } else {
       return (
         <Spinner />
-      )
+      );
     }
   }
 
@@ -138,6 +149,9 @@ const styles = {
       width: 2,
     }
   },
+  icons: {
+    //TODO add icon styling
+  },
   footer: {
     height: 50,
     backgroundColor: '#F8F8F8',
@@ -150,12 +164,12 @@ const styles = {
 const mapStateToProps = state => {
   return {
     movie: state.movies.detail
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   receiveMovie: movie => dispatch(receiveMovie(movie))
-})
+});
 
 export default connect(
   mapStateToProps,
