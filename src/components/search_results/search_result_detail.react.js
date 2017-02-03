@@ -35,19 +35,16 @@ class SearchResultDetail extends React.Component {
   }
 
   renderIcon(st) {
-    let iconName = 'amazon';
-    // let src = st.source;
-    // if (src.includes('amazon')) {
-    //   iconName = 'amazon';
-    // } else if (src.includes('netflix')) {
-    //   iconName = 'netflix';
-    // } else if (src.includes('hulu')) {
-    //   iconName = 'hulu';
-    // } else if (src.includes('hbo')) {
-    //   iconName = 'hbo';
-    // }
-    let url = 'hulu.png';
-    return (url);
+    let src = st.source;
+    if (src.includes('amazon')) {
+      return require('../../../assets/icons/amazon.png');
+    } else if (src.includes('netflix')) {
+      return require('../../../assets/icons/netflix.png');
+    } else if (src.includes('hulu')) {
+      return require('../../../assets/icons/hulu.png');
+    } else if (src.includes('hbo')) {
+      return require('../../../assets/icons/hbo.png');
+    }
   }
 
   renderStreamServices() {
@@ -55,7 +52,7 @@ class SearchResultDetail extends React.Component {
     return this.props.movie.subscription_web_sources.map( st => (
         <View style={ styles.service } key={ st.display_name }>
           <View style={ styles.icons }>
-            <Image source={{ uri: 'netflix.png' }} />
+            <Image source={this.renderIcon(st)} />
           </View>
           <View>
             <Text>{ st.display_name }</Text>
