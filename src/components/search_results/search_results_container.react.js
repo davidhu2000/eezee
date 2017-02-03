@@ -29,6 +29,14 @@ class SearchResults extends React.Component {
     ).then(
       resJson => {
         let movies = resJson.results;
+
+        let titles = [];
+        movies = movies.filter( movie => {
+          let noteIncluded = titles.indexOf(movie.title) === -1
+          titles.push(movie.title)
+          return noteIncluded;
+        });
+
         if(movies && movies.length > 5) {
           movies = movies.slice(0, 5);
         }
