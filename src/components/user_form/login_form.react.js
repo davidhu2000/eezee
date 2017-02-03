@@ -23,11 +23,6 @@ class LoginForm extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    console.log('unmounted');
-    this.props.clearErrors();
-  }
-
   update(field) {
     return text => {
       this.setState({
@@ -87,7 +82,7 @@ class LoginForm extends React.Component {
            <FooterButton buttonAction={ () => Actions.splash() }>
              Home
            </FooterButton>
-           <FooterButton buttonAction={ () => Actions.userForm() }>
+           <FooterButton buttonAction={ () => Actions.signupForm() }>
              Profile
            </FooterButton>
          </View>

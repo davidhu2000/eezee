@@ -73,7 +73,7 @@ class SearchResultDetail extends React.Component {
         { this.renderMovieDetail() }
         <View style={ styles.footer }>
           <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
-          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.signupForm() }>Profile</Text>
         </View>
       </View>
     );

@@ -90,7 +90,7 @@ class SearchResults extends React.Component {
           <FooterButton buttonAction={ () => Actions.splash() }>
             Home
           </FooterButton>
-          <FooterButton buttonAction={ () => Actions.userForm() }>
+          <FooterButton buttonAction={ () => Actions.signupForm() }>
             Profile
           </FooterButton>
         </View>

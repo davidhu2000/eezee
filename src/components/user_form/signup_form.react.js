@@ -7,7 +7,7 @@ import { CardSection, Card, Input, Button, SearchInput, FooterButton } from '../
 import { signup } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/errors_actions';
 
-class UserForm extends React.Component {
+class SignupForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -73,7 +73,7 @@ class UserForm extends React.Component {
 
         <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => {
             this.props.clearErrors();
-            Actions.userForm();
+            Actions.signupForm();
           } }>
           Login
         </Text>
@@ -84,7 +84,7 @@ class UserForm extends React.Component {
         <FooterButton buttonAction={ () => Actions.splash() }>
           Home
         </FooterButton>
-        <FooterButton buttonAction={ () => Actions.userForm() }>
+        <FooterButton buttonAction={ () => Actions.signupForm() }>
           Profile
         </FooterButton>
       </View>
@@ -149,4 +149,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserForm);
+)(SignupForm);

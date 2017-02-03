@@ -16,7 +16,7 @@ const Splash = () => {
         <Button buttonAction={ () => Actions.signupForm() }>
           Sign Up
         </Button>
-        <Button buttonAction={ () => Actions.userForm() }>
+        <Button buttonAction={ () => Actions.signupForm() }>
           Login
         </Button>
      </View>
@@ -24,7 +24,7 @@ const Splash = () => {
        <FooterButton buttonAction={ () => Actions.splash() }>
          Home
        </FooterButton>
-       <FooterButton buttonAction={ () => Actions.userForm() }>
+       <FooterButton buttonAction={ () => Actions.signupForm() }>
          Profile
        </FooterButton>
      </View>
