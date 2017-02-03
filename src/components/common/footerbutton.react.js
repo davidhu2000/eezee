@@ -16,7 +16,7 @@ const styles = {
     alignSelf: 'center'
   },
   buttonStyle: {
-    width: 160,
+    width: 150,
     paddingTop: 5,
     paddingBottom: 5,
     borderRadius: 2,

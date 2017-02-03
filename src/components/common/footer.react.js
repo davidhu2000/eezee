@@ -20,10 +20,13 @@ const Footer = () => {
 const styles = {
   footer: {
     height: 60,
-    padding: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 25,
+    paddingRight: 25,
     backgroundColor: '#F8F8F8',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     shadowColor: 'rgba(0, 0, 0, 0.2)',
     shadowOpacity: 0.8,

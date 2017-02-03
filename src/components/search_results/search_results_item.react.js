@@ -19,7 +19,7 @@ class SearchResultItem extends React.Component {
 
 const styles = {
   headerContentStyle: {
-    height: 50,
+    // height: 50,
     margin: 10,
     backgroundColor: '#fff',
     shadowColor: 'rgba(0, 0, 0, 0.12)',
@@ -28,12 +28,13 @@ const styles = {
     shadowOffset: {
       height: 1,
       width: 2,
-    },
-    justifyContent: 'center'
+    }
+    // justifyContent: 'center'
   },
   headerTextStyle: {
     fontSize: 18,
-    alignSelf: 'center'
+    // alignSelf: 'center',
+    padding: 10
   },
   imageStyle: {
     height: 50,
