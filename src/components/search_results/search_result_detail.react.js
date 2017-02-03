@@ -38,13 +38,15 @@ class SearchResultDetail extends React.Component {
   renderIcon(st) {
     let src = st.source;
     if (src.includes('amazon')) {
-      return require('../../../assets/icons/amazon.png');
+      return require('../../../assets/icons/amazon_button.png');
     } else if (src.includes('netflix')) {
-      return require('../../../assets/icons/netflix.png');
+      return require('../../../assets/icons/netflix_button.png');
     } else if (src.includes('hulu')) {
-      return require('../../../assets/icons/hulu.png');
+      return require('../../../assets/icons/hulu_button.png');
     } else if (src.includes('hbo')) {
-      return require('../../../assets/icons/hbo.png');
+      return require('../../../assets/icons/hbo_button.png');
+    } else if (src.includes('showtime')) {
+      return require('../../../assets/icons/showtime_button.png');
     }
   }
 
