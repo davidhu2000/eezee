@@ -15,7 +15,7 @@ class SearchResultDetail extends React.Component {
 
     this.state = {
       movie: {}
-    }
+    };
 
     this.renderStreamServices = this.renderStreamServices.bind(this);
   }
@@ -35,11 +35,30 @@ class SearchResultDetail extends React.Component {
 
   }
 
+  renderIcon(st) {
+    let src = st.source;
+    if (src.includes('amazon')) {
+      return require('../../../assets/icons/amazon.png');
+    } else if (src.includes('netflix')) {
+      return require('../../../assets/icons/netflix.png');
+    } else if (src.includes('hulu')) {
+      return require('../../../assets/icons/hulu.png');
+    } else if (src.includes('hbo')) {
+      return require('../../../assets/icons/hbo.png');
+    }
+  }
+
   renderStreamServices() {
+    let url = require(`../../../assets/icons/netflix.png`);
     return this.props.movie.subscription_web_sources.map( st => (
-      <View style={ styles.service } key={ st.display_name }>
-        <Text>{ st.display_name }</Text>
-      </View>
+        <View style={ styles.service } key={ st.display_name }>
+          <View style={ styles.icons }>
+            <Image source={this.renderIcon(st)} />
+          </View>
+          <View>
+            <Text>{ st.display_name }</Text>
+          </View>
+        </View>
     ));
   }
 
@@ -57,11 +76,11 @@ class SearchResultDetail extends React.Component {
           </View>
 
         </View>
-      )
+      );
     } else {
       return (
         <Spinner />
-      )
+      );
     }
   }
 
@@ -126,18 +145,21 @@ const styles = {
       height: 1,
       width: 2,
     }
+  },
+  icons: {
+
   }
 };
 
 const mapStateToProps = state => {
   return {
     movie: state.movies.detail
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   receiveMovie: movie => dispatch(receiveMovie(movie))
-})
+});
 
 export default connect(
   mapStateToProps,
