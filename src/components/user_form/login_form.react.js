@@ -1,9 +1,11 @@
 import React from 'react';
-import { Text, View, TextInput } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
+
 import NavBar from '../navbar/navbar.react';
-import { Input, Button, Footer, SessionForm } from '../common';
+import { Footer, SessionForm } from '../common';
+
 import { login } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/errors_actions';
 
