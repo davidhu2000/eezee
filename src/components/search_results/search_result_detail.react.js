@@ -50,7 +50,6 @@ class SearchResultDetail extends React.Component {
   }
 
   renderStreamServices() {
-    let url = require(`../../../assets/icons/netflix.png`);
     return this.props.movie.subscription_web_sources.map( st => (
         <View style={ styles.service } key={ st.display_name }>
           <View style={ styles.icons }>
