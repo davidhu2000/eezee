@@ -11,20 +11,16 @@ import { receiveAllMovies } from '../../actions/movies_actions';
 
 class SearchResults extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      movies: []
+      query: props.query
     };
 
     this.renderSearchResults = this.renderSearchResults.bind(this);
   }
 
-  // TODO: check for query from search
-  componentWillMount() {
-
-    let query = 'Dead';
-
+  queryMovies(query) {
     let url = `https://api-public.guidebox.com/v2/search?api_key=${api}&type=movie&field=title&precision=fuzzy&query=${query}`
 
     fetch(url)
@@ -36,12 +32,22 @@ class SearchResults extends React.Component {
         if(movies && movies.length > 5) {
           movies = movies.slice(0, 5);
         }
-        this.props.receiveAllMovies(movies);
+        this.props.receiveAllMovies(movies || []);
       }
     ).catch(
       err => console.log(err)
     );
+  }
 
+  // TODO: check for query from search
+  componentWillMount() {
+    this.queryMovies(this.props.query);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(this.props.query !== newProps.query) {
+      this.queryMovies(newProps.query);
+    }
   }
 
   renderSearchResults() {
@@ -52,32 +58,37 @@ class SearchResults extends React.Component {
           <SearchResultItem movieId={ movie.id } title={ movie.title } poster={ movie.poster_120x171 }/>
         </TouchableOpacity>
       );
-
     });
   }
 
-  render() {
-    if(this.props.movies.length > 0){
+  renderMovieList() {
+    if(this.props.movies.length > 0) {
       return (
-        <View style={ styles.pageStyle }>
-          <NavBar />
-
-          <View style={ styles.scrollStyle }>
-            { this.renderSearchResults() }
-          </View>
-
-          <View style={ styles.footer }>
-            <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
-            <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
-          </View>
-
+        <View style={ styles.scrollStyle }>
+          { this.renderSearchResults() }
         </View>
       );
     } else {
       return (
         <Spinner />
       );
-   }
+    }
+  }
+
+  render() {
+    return (
+      <View style={ styles.pageStyle }>
+        <NavBar />
+
+        { this.renderMovieList() }
+
+        <View style={ styles.footer }>
+          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.splash() }>Home</Text>
+          <Text style={{fontSize: 20, color: '#3B5998'}} onPress={ () => Actions.userForm() }>Profile</Text>
+        </View>
+
+      </View>
+    );
   }
 }
 
@@ -108,7 +119,8 @@ const styles = {
 };
 
 const mapStateToProps = state => ({
-  movies: state.movies.index
+  movies: state.movies.index,
+  query: state.queries
 });
 
 const mapDispatchToProps = dispatch => ({

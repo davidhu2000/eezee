@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 
-const SearchInput = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
+const SearchInput = ({ label, value, onChangeText, placeholder, secureTextEntry, onSubmitEditing }) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
 
   return (
@@ -15,6 +15,8 @@ const SearchInput = ({ label, value, onChangeText, placeholder, secureTextEntry 
         style={inputStyle}
         value={value}
         onChangeText={onChangeText}
+        onSubmitEditing={onSubmitEditing}
+        returnKeyType={'go'}
       />
     </View>
   );
