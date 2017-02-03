@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
-import { SearchInput, Button } from '../common';
+import { SearchInput, Button, FooterButton } from '../common';
 import { Actions } from 'react-native-router-flux';
 import NavBar from '../common/navbar.react';
 // import { Card, CardSection, Button } from '../common/index';
@@ -21,12 +21,12 @@ const Splash = () => {
         </Button>
      </View>
      <View style={ styles.footer }>
-       <View style={ styles.footerbutton }>
-         <Text style={ styles.footertext } onPress={ () => Actions.splash()} >Home</Text>
-       </View>
-       <View style={ styles.footerbutton }  >
-         <Text style={ styles.footertext } onPress={ () => Actions.userForm()} >Profile</Text>
-       </View>
+       <FooterButton buttonAction={ () => Actions.splash() }>
+         Home
+       </FooterButton>
+       <FooterButton buttonAction={ () => Actions.userForm() }>
+         Profile
+       </FooterButton>
      </View>
     </View>
   );
@@ -60,6 +60,7 @@ const styles = {
   },
   footer: {
     height: 60,
+    padding: 10,
     backgroundColor: '#F8F8F8',
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -71,25 +72,6 @@ const styles = {
       height: 1,
       width: 2,
     }
-  },
-  footerbutton: {
-    width: 150,
-    paddingTop: 5,
-    paddingBottom: 5,
-    borderRadius: 2,
-    backgroundColor: '#3B5998',
-    shadowColor: 'rgba(0, 0, 0, 0.2)',
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 1,
-      width: 2,
-    }
-  },
-  footertext: {
-    fontSize: 20,
-    color: '#fff',
-    alignSelf: 'center'
   }
 };
 

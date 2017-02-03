@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
   }
   render() {
     return (
-      <View style={ styles.footer }>
+      <View style={ styles.header }>
           <SearchInput
              label="Search"
              placeholder="Movie Name"
@@ -28,9 +28,10 @@ const styles = {
     fontSize: 20,
     color: '#3B5998'
   },
-  footer: {
-    height: 70,
-    paddingTop: 20,
+  header: {
+    height: 80,
+    paddingTop: 40,
+    paddingBottom: 25,
     paddingRight: 25,
     paddingLeft: 25,
     backgroundColor: '#F8F8F8',
