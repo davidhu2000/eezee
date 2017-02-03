@@ -5,3 +5,7 @@ export * from './header.react';
 export * from './input.react';
 export * from './spinner.react';
 export * from './search_input.react';
+export * from './footerbutton.react';
+export * from './back_button.react';
+export * from './footer.react';
+export * from './session_form.react';
