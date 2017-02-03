@@ -1,33 +1,30 @@
 import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
-import { SearchInput, Button, FooterButton } from '../common';
+import { SearchInput, Button, Footer } from '../common';
 import { Actions } from 'react-native-router-flux';
-import NavBar from '../common/navbar.react';
-// import { Card, CardSection, Button } from '../common/index';
+import NavBar from '../navbar/navbar.react';
 
 const Splash = () => {
 
   return (
     <View style={ styles.pageStyle }>
-     <NavBar />
-     <View style={ styles.searchStyle }>
-        <Text style={{fontSize: 20, color: '#3B5998', alignSelf: 'center', fontWeight: '600'}}>Welcome to eZ</Text>
-        <Text style={{fontSize: 15, color: '#3B5998', padding: 5}}>The simplest tool for finding the movie you want to stream online. Create an account or start your search.</Text>
+      <NavBar />
+      <View style={ styles.searchStyle }>
+        <Text style={{fontSize: 20, color: '#3B5998', alignSelf: 'center', fontWeight: '600'}}>
+          Welcome to eZ
+        </Text>
+        <Text style={{fontSize: 15, color: '#3B5998', padding: 5}}>
+          The simplest tool for finding the movie you want to stream online. Create an account or start your search.
+        </Text>
+
         <Button buttonAction={ () => Actions.signupForm() }>
           Sign Up
         </Button>
-        <Button buttonAction={ () => Actions.userForm() }>
+        <Button buttonAction={ () => Actions.loginForm() }>
           Login
         </Button>
-     </View>
-     <View style={ styles.footer }>
-       <FooterButton buttonAction={ () => Actions.splash() }>
-         Home
-       </FooterButton>
-       <FooterButton buttonAction={ () => Actions.userForm() }>
-         Profile
-       </FooterButton>
-     </View>
+      </View>
+      <Footer />
     </View>
   );
 };

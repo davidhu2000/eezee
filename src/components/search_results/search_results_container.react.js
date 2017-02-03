@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ScrollView, TouchableOpacity, View, Text } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import NavBar from '../common/navbar.react';
+import NavBar from '../navbar/navbar.react';
 import SearchResultItem from './search_results_item.react';
 import api from '../../../guidebox_api';
-import { Spinner, FooterButton } from '../common';
+import { Spinner, Footer } from '../common';
 
 import { receiveAllMovies } from '../../actions/movies_actions';
 
@@ -86,14 +86,7 @@ class SearchResults extends React.Component {
 
         { this.renderMovieList() }
 
-        <View style={ styles.footer }>
-          <FooterButton buttonAction={ () => Actions.splash() }>
-            Home
-          </FooterButton>
-          <FooterButton buttonAction={ () => Actions.userForm() }>
-            Profile
-          </FooterButton>
-        </View>
+        <Footer />
 
       </View>
     );
@@ -110,21 +103,6 @@ const styles = {
     padding: 10,
     backgroundColor: '#F8F8F8',
     shadowColor: 'rgba(0, 0, 0, 0.12)',
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 1,
-      width: 2,
-    }
-  },
-  footer: {
-    height: 60,
-    padding: 10,
-    backgroundColor: '#F8F8F8',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    shadowColor: 'rgba(0, 0, 0, 0.2)',
     shadowOpacity: 0.8,
     shadowRadius: 2,
     shadowOffset: {
