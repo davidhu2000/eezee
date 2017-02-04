@@ -1,15 +1,19 @@
 import React from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { CardSection, Card, Input, Button, SearchInput, BackButton } from '../common';
 
 import { FooterButton } from './footerbutton.react';
 
 const Footer = () => {
   return (
     <View style={ styles.footer }>
-      <FooterButton buttonAction={ () => Actions.splash() }>
-        Home
-      </FooterButton>
+      <View style={ styles.iconContainer }>
+        <Image
+          style={styles.iconStyle}
+          source={require('./backbutton.png')}
+          />
+      </View>
       <FooterButton buttonAction={ () => Actions.profile() }>
         Profile
       </FooterButton>
@@ -35,6 +39,16 @@ const styles = {
       height: 1,
       width: 2,
     }
+  },
+  iconStyle: {
+    height: 20,
+    width: 30
+  },
+  iconContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 20
   }
 };
 
