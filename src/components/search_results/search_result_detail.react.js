@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Linking, ScrollView } from 'react-native';
+import { Text, View, Image, Linking, ScrollView, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Spinner, FooterButton } from '../common';
@@ -37,26 +37,26 @@ class SearchResultDetail extends React.Component {
   renderIcon(st) {
     let src = st.source;
     if (src.includes('amazon')) {
-      return require('../../../assets/icons/amazon.png');
+      return require('../../../assets/icons/amazon_button.png');
     } else if (src.includes('netflix')) {
-      return require('../../../assets/icons/netflix.png');
+      return require('../../../assets/icons/netflix_button.png');
     } else if (src.includes('hulu')) {
-      return require('../../../assets/icons/hulu.png');
+      return require('../../../assets/icons/hulu_button.png');
     } else if (src.includes('hbo')) {
-      return require('../../../assets/icons/hbo.png');
+      return require('../../../assets/icons/hbo_button.png');
+    } else if (src.includes('showtime')) {
+      return require('../../../assets/icons/showtime_button.png');
     }
   }
 
   renderStreamServices() {
-    let url = require(`../../../assets/icons/netflix.png`);
     return this.props.movie.subscription_web_sources.map( st => (
         <View style={ styles.service } key={ st.display_name }>
-          <View style={ styles.icons }>
-            <Image source={this.renderIcon(st)} />
-          </View>
-          <View>
-            <Text>{ st.display_name }</Text>
-          </View>
+          <TouchableOpacity onPress={ () => Linking.openURL(st.link) }>
+            <View style={ styles.icons }>
+              <Image source={this.renderIcon(st)} />
+            </View>
+          </TouchableOpacity>
         </View>
     ));
   }
@@ -159,7 +159,8 @@ const styles = {
     flex: 1
   },
   icons: {
-
+    style: 'stretch',
+    hight: 64
   }
 };
 
