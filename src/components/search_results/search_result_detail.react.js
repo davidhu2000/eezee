@@ -53,7 +53,7 @@ class SearchResultDetail extends React.Component {
     return this.props.movie.subscription_web_sources.map( st => (
         <View style={ styles.service } key={ st.display_name }>
           <TouchableOpacity onPress={ () => Linking.openURL(st.link) }>
-            <View style={ styles.icons }>
+            <View>
               <Image source={this.renderIcon(st)} />
             </View>
           </TouchableOpacity>
@@ -160,7 +160,7 @@ const styles = {
   },
   icons: {
     style: 'stretch',
-    hight: 64
+    height: 64
   }
 };
 
