@@ -86,7 +86,6 @@ class SearchResultDetail extends React.Component {
     }
   }
 
-  // TODO: add image support
   render() {
     return (
       <View style={styles.containerStyle}>
