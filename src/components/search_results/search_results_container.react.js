@@ -73,11 +73,11 @@ class SearchResults extends React.Component {
     if(this.props.movies.length > 0) {
       return (
         <View style={ styles.pageStyle }>
-
-          <View style={ styles.scrollStyle }>
-            { this.renderSearchResults() }
+          <View style={ styles.contentStyle }>
+            <ScrollView style={ styles.scrollStyle }>
+              { this.renderSearchResults() }
+            </ScrollView>
           </View>
-
         </View>
       );
     } else {
@@ -107,6 +107,16 @@ const styles = {
     justifyContent: 'space-between'
   },
   scrollStyle: {
+    backgroundColor: '#F8F8F8',
+    shadowColor: 'rgba(0, 0, 0, 0.12)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
+  },
+  contentStyle: {
     margin: 25,
     padding: 10,
     backgroundColor: '#F8F8F8',
