@@ -20,8 +20,7 @@ class SearchResultDetail extends React.Component {
     this.renderStreamServices = this.renderStreamServices.bind(this);
   }
 
-  componentDidMount() {
-
+  componentWillMount() {
     let url = `https://api-public.guidebox.com/v2/movies/${this.props.movieId}?api_key=${api}`;
 
     fetch(`${url}`)
