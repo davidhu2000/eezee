@@ -11,7 +11,7 @@ const Footer = () => {
       <View style={ styles.iconContainer }>
         <Image
           style={styles.iconStyle}
-          source={require('./backbutton.png')}
+          source={require('../../../assets/images/ez_new_logo.png')}
           />
       </View>
       <FooterButton buttonAction={ () => Actions.profile() }>
@@ -41,14 +41,13 @@ const styles = {
     }
   },
   iconStyle: {
-    height: 20,
-    width: 30
+    height: 30,
+    width: 40
   },
   iconContainer: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 20
+    alignItems: 'center'
   }
 };
 

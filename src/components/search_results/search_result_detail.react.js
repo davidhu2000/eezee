@@ -53,15 +53,25 @@ class SearchResultDetail extends React.Component {
   }
 
   renderStreamServices() {
-    return this.props.movie.subscription_web_sources.map( st => (
-        <View style={ styles.service } key={ st.display_name }>
-          <TouchableOpacity onPress={ () => Linking.openURL(st.link) }>
-            <View>
-              <Image source={this.renderIcon(st)} />
-            </View>
-          </TouchableOpacity>
+    if(this.props.movie.subscription_web_sources && this.props.movie.subscription_web_sources.length > 0) {
+      return this.props.movie.subscription_web_sources.map( st => (
+          <View style={ styles.service } key={ st.display_name }>
+            <TouchableOpacity onPress={ () => Linking.openURL(st.link) }>
+              <View style={ styles.icons }>
+                <Image source={this.renderIcon(st)} />
+              </View>
+            </TouchableOpacity>
+          </View>
+      ));
+    } else {
+      return (
+        <View style={ styles.service }>
+          <Text>No Streaming Available</Text>
         </View>
-    ));
+      );
+    }
+
+
   }
 
   renderMovieDetail() {
@@ -161,8 +171,7 @@ const styles = {
     flex: 1
   },
   icons: {
-    style: 'stretch',
-    height: 64
+    alignItems: 'center'
   }
 };
 
