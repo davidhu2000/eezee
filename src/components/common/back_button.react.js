@@ -5,7 +5,7 @@ const BackButton = ({ buttonAction }) => (
   <TouchableOpacity onPress={buttonAction} style={styles.iconContainer}>
     <Image
       style={styles.iconStyle}
-      source={require('./backbutton.png')}
+      source={require('../../../assets/images/backbutton.png')}
       />
   </TouchableOpacity>
 );
