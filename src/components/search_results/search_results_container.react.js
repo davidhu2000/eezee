@@ -14,7 +14,8 @@ class SearchResults extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: props.query
+      query: props.query,
+      fetching: true
     };
 
     this.renderSearchResults = this.renderSearchResults.bind(this);
@@ -40,6 +41,7 @@ class SearchResults extends React.Component {
         if(movies && movies.length > 5) {
           movies = movies.slice(0, 5);
         }
+        this.setState({ fetching: false })
         this.props.receiveAllMovies(movies || []);
       }
     ).catch(
@@ -47,7 +49,6 @@ class SearchResults extends React.Component {
     );
   }
 
-  // TODO: check for query from search
   componentWillMount() {
     this.queryMovies(this.props.query);
   }
@@ -59,7 +60,6 @@ class SearchResults extends React.Component {
   }
 
   renderSearchResults() {
-    // TODO add SearchResultItem attributes here
     return this.props.movies.map( movie => {
       return (
         <TouchableOpacity key={ movie.title }  onPress={ () => Actions.movieDetail({ title: movie.title, movieId: movie.id }) }>
@@ -70,7 +70,7 @@ class SearchResults extends React.Component {
   }
 
   renderMovieList() {
-    if(this.props.movies.length > 0) {
+    if(this.props.movies.length > 0 && !this.state.fetching) {
       return (
         <View style={ styles.pageStyle }>
           <View style={ styles.contentStyle }>
@@ -91,11 +91,8 @@ class SearchResults extends React.Component {
     return (
       <View style={ styles.pageStyle }>
         <NavBar />
-
         { this.renderMovieList() }
-
         <Footer />
-
       </View>
     );
   }
