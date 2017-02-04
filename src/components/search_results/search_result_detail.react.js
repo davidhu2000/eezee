@@ -14,13 +14,13 @@ class SearchResultDetail extends React.Component {
     super(props);
 
     this.state = {
-      movie: {}
+      fetching: true
     };
 
     this.renderStreamServices = this.renderStreamServices.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
 
     let url = `https://api-public.guidebox.com/v2/movies/${this.props.movieId}?api_key=${api}`;
 
@@ -28,7 +28,10 @@ class SearchResultDetail extends React.Component {
     .then(
       res => res.json()
     ).then(
-      resJson => this.props.receiveMovie(resJson)
+      resJson => {
+        this.setState({ fetching: false });
+        this.props.receiveMovie(resJson);
+      }
     ).catch(
       err => console.log(err)
     );
@@ -62,7 +65,7 @@ class SearchResultDetail extends React.Component {
   }
 
   renderMovieDetail() {
-    if(this.props.movie.title) {
+    if(this.props.movie.title && !this.state.fetching) {
       return (
         <View style={ styles.containerStyle }>
           <View style={ styles.contentStyle }>
