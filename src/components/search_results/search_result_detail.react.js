@@ -138,9 +138,6 @@ const styles = {
     }
   },
   services: {
-    padding: 10,
-    margin: 10,
-    backgroundColor: '#fff',
     shadowColor: 'rgba(0, 0, 0, 0.12)',
     shadowOpacity: 0.8,
     shadowRadius: 2,
