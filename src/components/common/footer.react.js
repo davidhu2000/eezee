@@ -26,7 +26,7 @@ const styles = {
     height: 60,
     paddingTop: 10,
     paddingBottom: 10,
-    paddingLeft: 25,
+    // paddingLeft: 25,
     paddingRight: 25,
     backgroundColor: '#F8F8F8',
     flexDirection: 'row',
@@ -41,8 +41,8 @@ const styles = {
     }
   },
   iconStyle: {
-    height: 30,
-    width: 40
+    height: 45,
+    width: 55
   },
   iconContainer: {
     flex: 1,

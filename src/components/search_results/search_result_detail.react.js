@@ -97,12 +97,14 @@ class SearchResultDetail extends React.Component {
 
   render() {
     return (
-      <View style={styles.containerStyle}>
-        <NavBar backAction={Actions.pop} />
+      <Image style={styles.background} source={require('../../../assets/images/background.jpg')}>
+        <View style={styles.containerStyle}>
+          <NavBar backAction={Actions.pop} />
 
-        { this.renderMovieDetail() }
-        <Footer />
-      </View>
+          { this.renderMovieDetail() }
+          <Footer />
+        </View>
+      </Image>
     );
   }
 }
@@ -137,9 +139,6 @@ const styles = {
     }
   },
   services: {
-    padding: 10,
-    margin: 10,
-    backgroundColor: '#fff',
     shadowColor: 'rgba(0, 0, 0, 0.12)',
     shadowOpacity: 0.8,
     shadowRadius: 2,
@@ -171,6 +170,11 @@ const styles = {
   },
   icons: {
     alignItems: 'center'
+  },
+  background: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null
   }
 };
 

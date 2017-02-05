@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ScrollView, TouchableOpacity, View, Text } from 'react-native';
+import { ScrollView, TouchableOpacity, View, Text, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import NavBar from '../navbar/navbar.react';
 import SearchResultItem from './search_results_item.react';
@@ -89,11 +89,13 @@ class SearchResults extends React.Component {
 
   render() {
     return (
-      <View style={ styles.pageStyle }>
-        <NavBar />
-        { this.renderMovieList() }
-        <Footer />
-      </View>
+      <Image style={styles.background} source={require('../../../assets/images/background.jpg')}>
+        <View style={ styles.pageStyle }>
+          <NavBar />
+          { this.renderMovieList() }
+          <Footer />
+        </View>
+      </Image>
     );
   }
 }
@@ -124,6 +126,11 @@ const styles = {
       height: 1,
       width: 2,
     }
+  },
+  background: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null
   }
 };
 

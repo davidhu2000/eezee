@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Image  } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
@@ -37,22 +37,24 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <View style={ styles.pageStyle }>
-        <NavBar />
+      <Image style={styles.background} source={require('../../../assets/images/background.jpg')}>
+        <View style={ styles.pageStyle }>
+          <NavBar />
 
-        <SessionForm
-          errors={this.props.errors}
-          action={this.props.login}
-          clearErrors={this.props.clearErrors}
-          linkAction={ Actions.signupForm }
-          updateEmail={this.update('email')}
-          updatePassword={this.update('password')}
-          email={this.state.email}
-          password={this.state.password}
-          buttonValue={'Login'}
-        />
-        <Footer />
-      </View>
+          <SessionForm
+            errors={this.props.errors}
+            action={this.props.login}
+            clearErrors={this.props.clearErrors}
+            linkAction={ Actions.signupForm }
+            updateEmail={this.update('email')}
+            updatePassword={this.update('password')}
+            email={this.state.email}
+            password={this.state.password}
+            buttonValue={'Login'}
+          />
+          <Footer />
+        </View>
+      </Image>
     );
   }
 }
@@ -61,6 +63,11 @@ const styles = {
   pageStyle: {
     flex: 1,
     justifyContent: 'space-between'
+  },
+  background: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null
   }
 };
 
