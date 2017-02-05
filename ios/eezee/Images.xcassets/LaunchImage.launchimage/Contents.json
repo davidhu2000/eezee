@@ -3,20 +3,20 @@
     {
       "extent": "full-screen",
       "idiom": "iphone",
-      "filename": "Default-568h@2x.png",
-      "minimum-system-version": "7.0",
-      "orientation": "portrait",
-      "scale": "2x",
-      "subtype": "retina4"
-    },
-    {
-      "extent": "full-screen",
-      "idiom": "iphone",
       "filename": "Default-667h@2x.png",
       "minimum-system-version": "8.0",
       "orientation": "portrait",
       "scale": "2x",
       "subtype": "667h"
+    },
+    {
+      "extent": "full-screen",
+      "idiom": "iphone",
+      "filename": "Default-568h@2x.png",
+      "minimum-system-version": "7.0",
+      "orientation": "portrait",
+      "scale": "2x",
+      "subtype": "retina4"
     },
     {
       "extent": "full-screen",
