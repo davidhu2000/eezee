@@ -47,7 +47,6 @@ const styles = {
     marginRight: 25,
     padding: 25,
     backgroundColor: '#F8F8F8',
-    // height: 250,
     shadowColor: 'rgba(0, 0, 0, 0.12)',
     shadowOpacity: 0.8,
     shadowRadius: 2,
