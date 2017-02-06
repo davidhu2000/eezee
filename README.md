@@ -21,7 +21,19 @@ eZ is a collaborative project by [Alex Sherman](https://github.com/asherman-ca),
 The application accepts some input from the user, e.g. "Silence of the Lambs" or "Batman," then interpolates the query into a call to the [GuideBox API](https://api.guidebox.com/docs), which returns a list of related movies. The app then filters the results and displays links to the five most relevant.
 
 ```JavaScript
+let url = `https://api-public.guidebox.com/v2/movies/${this.props.movieId}?api_key=${api}`;
 
+fetch(`${url}`)
+  .then(
+    res => res.json()
+  ).then(
+    resJson => {
+      this.setState({ fetching: false });
+      this.props.receiveMovie(resJson);
+    }
+  ).catch(
+    err => console.log(err)
+  );
 ```
 
 When a user selects one of the displayed options, the application redirects to a page displaying which (if any) streaming services currently host the selected movie/tv show. Each available streaming option displays an icon with link directly to the content.
