@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, Image, Linking } from 'react-native';
 // import { Card, CardSection, Button } from '../common/index';
 
+
 class SearchResultItem extends React.Component {
   constructor(props){
     super(props);
@@ -9,28 +10,28 @@ class SearchResultItem extends React.Component {
 
   render() {
     return (
-      <View>
         <View style={ styles.headerContentStyle }>
           <Text style={ styles.headerTextStyle }>{ this.props.title }</Text>
         </View>
-
-        <View style={ styles.imageContainerStyle }>
-        </View>
-      </View>
     );
   }
 }
 
 const styles = {
-  // containerStyle: {
-  //
-  // },
   headerContentStyle: {
-    flexDirection: 'column',
-    justifyContent: 'space-around'
+    margin: 10,
+    backgroundColor: '#fff',
+    shadowColor: 'rgba(0, 0, 0, 0.12)',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 2,
+    }
   },
   headerTextStyle: {
-    fontSize: 18
+    fontSize: 18,
+    padding: 10
   },
   imageStyle: {
     height: 50,

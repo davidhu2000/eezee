@@ -1,10 +1,13 @@
 import React from 'react';
-import { Text, View, TextInput } from 'react-native';
+import { View, Image  } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-import { CardSection, Card, Input, Button, SearchInput } from '../common';
+import NavBar from '../navbar/navbar.react';
+import { Footer, SessionForm } from '../common';
+
 import { login } from '../../actions/session_actions';
+import { clearErrors } from '../../actions/errors_actions';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -14,6 +17,14 @@ class LoginForm extends React.Component {
       email: '',
       password: ''
     };
+
+    this.update = this.update.bind(this);
+  }
+
+  componentWillMount() {
+    if(this.props.loggedIn) {
+      Actions.searchResults();
+    }
   }
 
   update(field) {
@@ -24,96 +35,39 @@ class LoginForm extends React.Component {
     };
   }
 
-  renderErrors() {
-    if(this.props.errors[0]) {
-      return (
-        <Text>
-          { this.props.errors[0] }
-        </Text>
-      );
-    }
-  }
-
   render() {
     return (
-     <View style={ styles.pageStyle }>
-      <View style={ styles.formStyle }>
-        { this.renderErrors() }
+      <Image style={styles.background} source={require('../../../assets/images/background.jpg')}>
+        <View style={ styles.pageStyle }>
+          <NavBar />
 
-        <Input
-           label="Email"
-           placeholder="email@gmail.com"
-           onChangeText={this.update('email')}
-           value={this.state.email}
-         />
-
-        <Input
-           label="Password"
-           placeholder="password"
-           onChangeText={this.update('password')}
-           value={this.state.password}
-           secureTextEntry
-         />
-
-        <Button buttonAction={ () => this.props.login(this.state) }>
-          Login
-        </Button>
-
-        <View style={ styles.btmbtn }>
-          <Text>Don't have an account?</Text>
-
-          <Text style={{textDecorationLine: 'underline', color: '#3B5998'}} onPress={ () => Actions.signupForm() }>
-            Sign Up
-          </Text>
+          <SessionForm
+            errors={this.props.errors}
+            action={this.props.login}
+            clearErrors={this.props.clearErrors}
+            linkAction={ Actions.signupForm }
+            updateEmail={this.update('email')}
+            updatePassword={this.update('password')}
+            email={this.state.email}
+            password={this.state.password}
+            buttonValue={'Login'}
+          />
+          <Footer />
         </View>
-       </View>
-
-       <View style={ styles.footer }>
-         <Text style={{flex: 1, fontSize: 20, color: '#3B5998', paddingLeft: 20}} onPress={ () => Actions.splash() }>Home</Text>
-           <SearchInput
-              label="Search"
-              placeholder="Movie Name"
-            />
-       </View>
-      </View>
+      </Image>
     );
   }
 }
 
 const styles = {
-  formStyle: {
-    marginTop: 210,
-    marginLeft: 25,
-    marginRight: 25,
-    padding: 25,
-    backgroundColor: '#F8F8F8',
-    height: 250,
-    shadowColor: 'rgba(0, 0, 0, 0.12)',
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 1,
-      width: 2,
-    }
-  },
-  btmbtn: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    margin: 20
-  },
   pageStyle: {
     flex: 1,
     justifyContent: 'space-between'
   },
-  footer: {
-    height: 50,
-    paddingRight: 25,
-    paddingLeft: 25,
-    backgroundColor: '#F8F8F8',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    flexDirection: 'row'
+  background: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null
   }
 };
 
@@ -124,7 +78,8 @@ const mapStateToProps = ({ session, errors }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  login: user => dispatch(login(user))
+  login: user => dispatch(login(user)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(

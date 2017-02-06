@@ -1,37 +1,43 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Text, View, Image, Linking } from 'react-native';
-import { SearchInput, Button } from '../common';
+import { SearchInput, Button, Footer } from '../common';
 import { Actions } from 'react-native-router-flux';
-// import { Card, CardSection, Button } from '../common/index';
+import NavBar from '../navbar/navbar.react';
 
-const Splash = () => {
-  const {
-    containerStyle
-  } = styles;
+class Splash extends React.Component {
+  componentWillMount() {
+    if(this.props.loggedIn) {
+      Actions.searchResults();
+    }
+  }
 
-  return (
-    <View style={ styles.pageStyle }>
-     <View style={ styles.searchStyle }>
-        <Text style={{fontSize: 20, color: '#3B5998', alignSelf: 'center', fontWeight: '600'}}>Welcome to eZ</Text>
-        <Text style={{fontSize: 15, color: '#3B5998', padding: 5}}>The simplest tool for finding the movie you want to stream online. Create an account or start your search.</Text>
-        <Button buttonAction={ () => Actions.signupForm() }>
-          Sign Up
-        </Button>
-        <Button buttonAction={ () => Actions.userForm() }>
-          Login
-        </Button>
-     </View>
+  render() {
+    return (
+      <Image style={styles.background} source={require('../../../assets/images/background.jpg')}>
+      <View style={ styles.pageStyle }>
+        <NavBar />
+        <View style={ styles.searchStyle }>
+          <Text style={{fontSize: 20, color: '#3B5998', alignSelf: 'center', fontWeight: '600'}}>
+            Welcome to eZ
+          </Text>
+          <Text style={{fontSize: 15, color: '#3B5998', padding: 5}}>
+            The simplest tool for finding the movie you want to stream online. Create an account or start your search.
+          </Text>
 
-     <View style={ styles.footer }>
-       <Text style={{flex: 1, fontSize: 20, color: '#3B5998', paddingLeft: 20}} onPress={ () => Actions.userForm() }>Profile</Text>
-         <SearchInput
-           label="Search"
-            placeholder="Movie Name"
-          />
-     </View>
-    </View>
-  );
-};
+          <Button buttonAction={ () => Actions.signupForm() }>
+            Sign Up
+          </Button>
+          <Button buttonAction={ () => Actions.loginForm() }>
+            Login
+          </Button>
+        </View>
+        <Footer />
+      </View>
+      </Image>
+    );
+  }
+}
 
 const styles = {
   pageStyle: {
@@ -40,7 +46,6 @@ const styles = {
   },
   searchStyle: {
     justifyContent: 'space-around',
-    marginTop: 210,
     marginLeft: 25,
     marginRight: 25,
     padding: 25,
@@ -54,21 +59,21 @@ const styles = {
       width: 2,
     }
   },
-  btmbtn: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    margin: 20
-  },
-  footer: {
-    height: 50,
-    paddingRight: 25,
-    paddingLeft: 25,
-    backgroundColor: '#F8F8F8',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center'
+  background: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: null
   }
 };
 
-export default Splash;
+const mapStateToProps = ({ session }) => ({
+  loggedIn: Boolean(session.currentUser),
+});
+
+const mapDispatchToProps = dispatch => ({
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Splash);

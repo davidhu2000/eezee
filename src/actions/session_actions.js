@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 
 import { receiveErrors, clearErrors } from './errors_actions';
 
@@ -15,11 +16,12 @@ export const login = ({ email, password }) => {
       .then(
         user => {
           dispatch(clearErrors());
-          return dispatch(receiveUser(user));
+          dispatch(receiveUser(user));
+          Actions.profile();
         }
       ).catch(
         err => dispatch(receiveErrors(
-          ['Invalid credentials']
+          [err.message]
         ))
       )
   }
@@ -31,11 +33,12 @@ export const signup = ({ email, password }) => {
       .then(
         user => {
           dispatch(clearErrors());
-          return dispatch(receiveUser(user))
+          dispatch(receiveUser(user));
+          Actions.profile();
         }
       ).catch(
         err => dispatch(receiveErrors(
-          ['Invalid email and/or password']
+          [err.message]
         ))
       )
   }

@@ -5,7 +5,7 @@ import {
 } from '../actions/movies_actions';
 
 const _defaultState = {
-  index: {},
+  index: [],
   detail: {}
 }
 
@@ -19,7 +19,7 @@ const moviesReducer = (state = _defaultState, action) => {
       });
     case RECEIVE_MOVIE:
       return merge({}, {
-        index: {},
+        index: state.index,
         detail: action.movie
       })
     default:
