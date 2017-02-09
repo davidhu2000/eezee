@@ -5,14 +5,14 @@ const BackButton = ({ buttonAction }) => (
   <TouchableOpacity onPress={buttonAction} style={styles.iconContainer}>
     <Image
       style={styles.iconStyle}
-      source={require('../../../assets/images/backbutton.png')}
+      source={require('../../../assets/images/Logomakr2.png')}
       />
   </TouchableOpacity>
 );
 
 const styles = {
   iconStyle: {
-    height: 20,
+    height: 30,
     width: 30
   },
   iconContainer: {
