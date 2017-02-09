@@ -5,8 +5,6 @@
 
 eZ is a collaborative project by [Alex Sherman](https://github.com/asherman-ca), [David Hu](https://github.com/davidhu2000), and [Tom Ogasawara](https://github.com/tom-ogasawara).
 
-![splash](./assets/images/*** SPLASH SCREENSHOT ***)
-
 ## Features
 
 - Simultaneous query multiple streaming services
@@ -14,32 +12,85 @@ eZ is a collaborative project by [Alex Sherman](https://github.com/asherman-ca),
 - Create user accounts with secure authentication
 - Access links to available streaming sites directly from the app
 
-![search](./assets/images/*** SEARCH PAGE SCREENSHOT ***)
+#### Netflix Search:
+![Search Netflix](./images/netflix_query.gif)
+
+#### Amazon Search:
+![Search Amazon](./images/amazon_query.gif)
+
+#### User authentication:
+![User authentication](./images/user_login.gif)
 
 ## Implementation
 
 The application accepts some input from the user, e.g. "Silence of the Lambs" or "Batman," then interpolates the query into a call to the [GuideBox API](https://api.guidebox.com/docs), which returns a list of related movies. The app then filters the results and displays links to the five most relevant.
 
 ```JavaScript
-let url = `https://api-public.guidebox.com/v2/movies/${this.props.movieId}?api_key=${api}`;
+queryMovies(query) {
+  let url = `https://api-public.guidebox.com/v2/search?api_key=${api}&type=movie&field=title&precision=fuzzy&query=${query}`
 
-fetch(`${url}`)
+  fetch(url)
   .then(
     res => res.json()
   ).then(
     resJson => {
-      this.setState({ fetching: false });
-      this.props.receiveMovie(resJson);
+      let movies = resJson.results;
+
+      let titles = [];
+      movies = movies.filter( movie => {
+        let noteIncluded = titles.indexOf(movie.title) === -1
+        titles.push(movie.title)
+        return noteIncluded;
+      });
+
+      if(movies && movies.length > 5) {
+        movies = movies.slice(0, 5);
+      }
+      this.setState({ fetching: false })
+      this.props.receiveAllMovies(movies || []);
     }
   ).catch(
     err => console.log(err)
   );
+}
 ```
 
 When a user selects one of the displayed options, the application redirects to a page displaying which (if any) streaming services currently host the selected movie/tv show. Each available streaming option displays an icon with link directly to the content.
 
 ```JavaScript
+renderStreamServices() {
+  if(this.props.movie.subscription_web_sources && this.props.movie.subscription_web_sources.length > 0) {
+    return this.props.movie.subscription_web_sources.map( st => (
+        <View style={ styles.service } key={ st.display_name }>
+          <TouchableOpacity onPress={ () => Linking.openURL(st.link) }>
+            <View style={ styles.icons }>
+              <Image source={this.renderIcon(st)} />
+            </View>
+          </TouchableOpacity>
+        </View>
+    ));
+  } else {
+    return (
+      <View style={ styles.service }>
+        <Text>No Streaming Available</Text>
+      </View>
+    );
+  }
+}
+```
 
+The search bar simply updates the query string in the application state, and changes the current scene of the application to the search results scene. The query for the movies will run as setup by the lifecyle methods
+
+```js
+  componentWillMount() {
+    this.queryMovies(this.props.query);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(this.props.query !== newProps.query) {
+      this.queryMovies(newProps.query);
+    }
+  }
 ```
 
 ## Technology
@@ -56,4 +107,8 @@ We set up a lightweight back-end with secure user authentication using [FireBase
 
 ## Future Implementation
 
-[development readme](docs/README.md)
+- Utilize Electron to create a desktop application.
+- Create the full-stack web application.
+- Add more search functionalities to query other types of data, such as riding sharing services.
+- Add user recommendation based on prior searches and related movies to current search.
+- Setup Facebook Login.

@@ -69,8 +69,6 @@ class SearchResultDetail extends React.Component {
         </View>
       );
     }
-
-
   }
 
   renderMovieDetail() {
