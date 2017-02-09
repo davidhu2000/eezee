@@ -23,7 +23,7 @@ class App extends React.Component {
     return (
       <StatusBar
         hidden={false}
-        backgroundColor="rgba(155,155,155,1)"
+        backgroundColor="rgba(0,0,0,0.5)"
         barStyle="dark-content"
       />
     )
