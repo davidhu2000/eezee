@@ -1,5 +1,5 @@
 
-<img src="./assets/images/ez_icon.png" alt="logo" style="width: 400px;"/>
+<img src="./assets/images/300_icon.png" alt="logo" style="width: 300px;"/>
 
 [eZ](https://itunes.apple.com/us/genre/ios/id36?mt=8) is an iOS application that provides users with a quick and easy way to search for movies across multiple streaming services. It utilizes a lightweight FireBase back-end, and React Native with a Flux/redux architecture to control the application state on the front-end.
 
