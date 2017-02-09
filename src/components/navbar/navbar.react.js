@@ -31,7 +31,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <View style={ styles.header }>
-          {this.renderBackButton()}
+          { Platform.select({ ios: this.renderBackButton() }) }
           <SearchInput
              label="Search"
              placeholder="Movie Name"

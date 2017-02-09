@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Text, View } from 'react-native';
+import { StatusBar, View, Platform } from 'react-native';
 import firebase from 'firebase';
 
 import Routes from './routes.react';
@@ -19,9 +19,21 @@ class App extends React.Component {
     firebase.initializeApp(config);
   }
 
+  renderStatusBar() {
+    // TODO: update backgroundColor
+    return (
+      <StatusBar
+        hidden={false}
+        backgroundColor="rgba(0,0,0,0.5)"
+        barStyle="dark-content"
+      />
+    )
+  }
+
   render() {
     return (
       <View style={ styles.viewStyle }>
+        { Platform.select({ android: this.renderStatusBar() }) }
         <Routes />
       </View>
     );
