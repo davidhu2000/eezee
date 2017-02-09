@@ -20,6 +20,7 @@ class App extends React.Component {
   }
 
   renderStatusBar() {
+    // TODO: update backgroundColor
     return (
       <StatusBar
         hidden={false}
@@ -31,7 +32,6 @@ class App extends React.Component {
 
   render() {
     return (
-      // TODO: update backgroundColor
       <View style={ styles.viewStyle }>
         { Platform.select({ android: this.renderStatusBar() }) }
         <Routes />
