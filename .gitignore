@@ -1,6 +1,6 @@
 
 # ignore build
 ios/build
-android/app/build
+android/app
 
 guidebox_api.js
