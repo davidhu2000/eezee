@@ -1,24 +1,29 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
-  const { inputStyle, labelStyle, containerStyle } = styles;
+class Input extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <View style={containerStyle}>
-      <Text style={labelStyle}>{label}</Text>
-      <TextInput
-        secureTextEntry={secureTextEntry}
-        placeholder={placeholder}
-        autoCorrect={false}
-        autoCapitalize='none'
-        style={inputStyle}
-        value={value}
-        onChangeText={onChangeText}
-      />
-    </View>
-  );
-};
+  render() {
+    const { inputStyle, labelStyle, containerStyle } = styles;
+    return (
+      <View style={[containerStyle, this.state.shadow]}>
+        <Text style={labelStyle}>{this.props.label}</Text>
+        <TextInput
+          secureTextEntry={this.props.secureTextEntry}
+          placeholder={this.props.placeholder}
+          autoCorrect={false}
+          autoCapitalize='none'
+          style={inputStyle}
+          value={this.props.value}
+          onChangeText={this.props.onChangeText}
+        />
+      </View>
+    );
+  }
+}
 
 const styles = {
   inputStyle: {
@@ -36,7 +41,6 @@ const styles = {
   containerStyle: {
     height: 50,
     margin: 5,
-    // flexGrow: 1,
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 2,

@@ -47,7 +47,7 @@ const styles = {
   header: {
     ...Platform.select({
       android: {
-        paddingTop: 25,
+        paddingTop: 60,
       },
       ios: {
         paddingTop: 40,
