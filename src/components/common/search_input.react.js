@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, View, Text } from 'react-native';
+import { TextInput, View, Text, Platform } from 'react-native';
 
 const SearchInput = ({ label, value, onChangeText, placeholder, secureTextEntry, onSubmitEditing }) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
@@ -17,6 +17,7 @@ const SearchInput = ({ label, value, onChangeText, placeholder, secureTextEntry,
         onChangeText={onChangeText}
         onSubmitEditing={onSubmitEditing}
         returnKeyType={'go'}
+        underlineColorAndroid="transparent"
       />
     </View>
   );
@@ -27,7 +28,12 @@ const styles = {
     color: '#000',
     flex: 1,
     fontSize: 15,
-    paddingLeft: 20
+    paddingLeft: 20,
+    ...Platform.select({
+      android: {
+
+      },
+    })
   },
   labelStyle: {
     fontSize: 15,
@@ -35,7 +41,14 @@ const styles = {
   },
   containerStyle: {
     flex: 5,
-    height: 35,
+    ...Platform.select({
+      android: {
+        height: 50,
+      },
+      ios: {
+        height: 35
+      }
+    }),
     // width: 250,
     borderWidth: 1,
     borderRadius: 2,

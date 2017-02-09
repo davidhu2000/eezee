@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, View, Text, Image, TouchableOpacity } from 'react-native';
+import { PTextInput, View, Text, Image, TouchableOpacity, Platform } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import { CardSection, Card, Input, Button, SearchInput, BackButton } from '../common';
@@ -44,14 +44,16 @@ class NavBar extends React.Component {
 }
 
 const styles = {
-  // navtext: {
-  //   flex: 1,
-  //   fontSize: 20,
-  //   color: '#3B5998'
-  // },
   header: {
+    ...Platform.select({
+      android: {
+        paddingTop: 25,
+      },
+      ios: {
+        paddingTop: 40,
+      }
+    }),
     height: 80,
-    paddingTop: 40,
     paddingBottom: 25,
     paddingRight: 25,
     paddingLeft: 25,
@@ -63,8 +65,6 @@ const styles = {
   iconStyle: {
     height: 20,
     width: 30
-    // flex: 1
-    // padding: 5
   },
   iconContainer: {
     flex: 1,
