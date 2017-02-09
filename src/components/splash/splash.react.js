@@ -14,7 +14,7 @@ class Splash extends React.Component {
 
   render() {
     return (
-      <Image style={styles.background} source={require('../../../assets/images/background.jpg')}>
+      <Image style={styles.background} source={require('../../../images/oldy.jpg')}>
       <View style={ styles.pageStyle }>
         <NavBar />
         <View style={ styles.searchStyle }>
@@ -61,8 +61,9 @@ const styles = {
   },
   background: {
     flex: 1,
-    alignSelf: 'stretch',
-    width: null
+    // alignSelf: 'stretch',
+    width: null,
+    height: null
   }
 };
 

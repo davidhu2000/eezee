@@ -95,7 +95,7 @@ class SearchResultDetail extends React.Component {
 
   render() {
     return (
-      <Image style={styles.background} source={require('../../../assets/images/background.jpg')}>
+      <Image style={styles.background} source={require('../../../images/oldy.jpg')}>
         <View style={styles.containerStyle}>
           <NavBar backAction={Actions.pop} />
 

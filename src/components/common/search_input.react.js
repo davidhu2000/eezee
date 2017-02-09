@@ -46,7 +46,7 @@ const styles = {
         height: 50,
       },
       ios: {
-        height: 35
+        height: 50
       }
     }),
     // width: 250,

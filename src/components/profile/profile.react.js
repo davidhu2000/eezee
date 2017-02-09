@@ -21,7 +21,7 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <Image style={styles.background} source={require('../../../assets/images/background.jpg')}>
+      <Image style={styles.background} source={require('../../../images/oldy.jpg')}>
         <View style={ styles.viewStyle }>
           <Navbar />
           <View style={ styles.containerStyle }>

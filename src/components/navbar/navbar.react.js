@@ -57,7 +57,7 @@ const styles = {
     paddingBottom: 25,
     paddingRight: 25,
     paddingLeft: 25,
-    backgroundColor: '#F8F8F8',
+    // backgroundColor: '#F8F8F8',
     justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row'

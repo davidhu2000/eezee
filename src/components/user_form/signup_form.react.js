@@ -37,7 +37,7 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <Image style={styles.background} source={require('../../../assets/images/background.jpg')}>
+      <Image style={styles.background} source={require('../../../images/oldy.jpg')}>
         <View style={ styles.pageStyle }>
           <NavBar />
           <SessionForm
@@ -61,6 +61,7 @@ class SignupForm extends React.Component {
 const styles = {
   pageStyle: {
     flex: 1,
+    width: null,
     justifyContent: 'space-between'
   },
   background: {
