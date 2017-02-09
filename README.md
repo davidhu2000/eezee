@@ -53,7 +53,6 @@ queryMovies(query) {
     err => console.log(err)
   );
 }
-
 ```
 
 When a user selects one of the displayed options, the application redirects to a page displaying which (if any) streaming services currently host the selected movie/tv show. Each available streaming option displays an icon with link directly to the content.
