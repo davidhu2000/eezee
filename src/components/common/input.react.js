@@ -9,7 +9,7 @@ class Input extends React.Component {
   render() {
     const { inputStyle, labelStyle, containerStyle } = styles;
     return (
-      <View style={[containerStyle, this.state.shadow]}>
+      <View style={containerStyle}>
         <Text style={labelStyle}>{this.props.label}</Text>
         <TextInput
           secureTextEntry={this.props.secureTextEntry}

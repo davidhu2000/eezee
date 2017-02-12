@@ -1,7 +1,7 @@
 
 <img src="./assets/images/300_icon.png" alt="logo" style="width: 300px;"/>
 
-[eZ](https://itunes.apple.com/us/genre/ios/id36?mt=8) is an iOS application that provides users with a quick and easy way to search for movies across multiple streaming services. It utilizes a lightweight FireBase back-end, and React Native with a Flux/redux architecture to control the application state on the front-end.
+[eZ](https://play.google.com/store/apps/details?id=com.eezee) is an iOS application that provides users with a quick and easy way to search for movies across multiple streaming services. It utilizes a lightweight FireBase back-end, and React Native with a Flux/redux architecture to control the application state on the front-end.
 
 eZ is a collaborative project by [Alex Sherman](https://github.com/asherman-ca), [David Hu](https://github.com/davidhu2000), and [Tom Ogasawara](https://github.com/tom-ogasawara).
 

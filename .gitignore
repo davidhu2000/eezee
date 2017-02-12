@@ -4,3 +4,5 @@ ios/build
 android/app/build
 
 guidebox_api.js
+
+android/app/my-release-key.keystore
