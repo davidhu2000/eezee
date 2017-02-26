@@ -12,14 +12,8 @@ eZ is a collaborative project by [Alex Sherman](https://github.com/asherman-ca),
 - Create user accounts with secure authentication
 - Access links to available streaming sites directly from the app
 
-#### Netflix Search:
-![Search Netflix](./images/netflix_query.gif)
-
-#### Amazon Search:
-![Search Amazon](./images/amazon_query.gif)
-
-#### User authentication:
-![User authentication](./images/user_login.gif)
+#### Screenshots:
+![Movie Detail](./images/movie_detail.png) ![Search Result](./images/search_result.png) ![User authentication](./images/user_login.png)
 
 ## Implementation
 
